@@ -1,0 +1,15 @@
+:root {
+	--content-margin: 24px;
+}
+
+/* prettier-ignore */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+button {
+	background-color: transparent;
+}

@@ -1,0 +1,21 @@
+.header {
+	margin: 16px var(--content-horizontal-margin);
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.search-form {
+	display: flex;
+	gap: 8px;
+	background-color: var(--background-color);
+	position: relative;
+}
+
+.search-form:focus-within::after {
+	content: '';
+	height: 2px;
+	background-color: #e97f03;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,14 @@
+/* prettier-ignore */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+}
+
+button {
+	background-color: transparent;
+}

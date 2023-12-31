@@ -1,0 +1,17 @@
+:root {
+	--background-color: #fff;
+	--content-horizontal-margin: 24px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* prettier-ignore */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+button {
+	background-color: transparent;
+}

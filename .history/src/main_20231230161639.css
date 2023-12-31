@@ -1,0 +1,80 @@
+.wrapper {
+	margin: 24px var(--content-horizontal-margin);
+	margin-bottom: 0;
+	display: flex;
+}
+
+.card {
+	width: 220px;
+	height: 272px;
+	position: relative;
+	background-color: #e2e2e2;
+	padding: 40px 0 24px 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.card img {
+	margin-bottom: 8px;
+}
+
+.card h2 {
+	color: #323232;
+	font-size: 18px;
+}
+
+.card h3 {
+	color: #545454;
+	font-size: 14px;
+}
+
+.favorite {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24px;
+	height: 24px;
+	margin: 8px;
+	/* background-image: url('/public/icons/favorite.svg');
+	transition: background-image 0.1s ease-out; */
+}
+
+.favorite input {
+	display: none;
+}
+
+.favorite-icon {
+	width: 24px;
+	height: 24px;
+	opacity: 1;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	position: absolute;
+	fill: #959595;
+}
+
+.favorite input:checked ~ .favorite-icon {
+	opacity: 0;
+}
+
+.favorite:hover .favorite-icon {
+	fill: #b18e64;
+}
+
+.favorite-active-icon {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	opacity: 0;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	fill: #e97f03;
+}
+
+.favorite input:checked ~ .favorite-active-icon {
+	opacity: 1;
+}
+
+.favorite:hover input:checked ~ .favorite-active-icon {
+	fill: #cd8634;
+}

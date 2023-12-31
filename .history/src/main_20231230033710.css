@@ -1,0 +1,34 @@
+.wrapper {
+	margin: 24px var(--content-horizontal-margin);
+	margin-bottom: 0;
+	display: flex;
+}
+
+.card {
+	width: 220px;
+	height: 272px;
+	position: relative;
+	background-color: #999;
+}
+
+.favorite {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24px;
+	height: 24px;
+	background-image: url('/public/icons/favorite.svg');
+	transition: background-image 0.1s ease-out;
+}
+
+.favorite input {
+	display: none;
+}
+
+.favorite:has(input:focus) {
+	background-image: url('/public/icons/favorite_active.svg');
+}
+
+.favorite:has(input:checked) {
+	background-image: url('/public/icons/favorite_active.svg');
+}
