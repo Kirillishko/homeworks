@@ -1,6 +1,7 @@
 :root {
     --background-color: #fff;
     --content-horizontal-margin: 24px;
+    --main-color: #e97f03;
 }
 
 *, *::before, *::after {

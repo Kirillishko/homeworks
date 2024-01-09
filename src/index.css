@@ -41,15 +41,15 @@
 
 .card a {
     margin: auto 0;
+    color: #323232;
 }
 
 .card h2 {
     font-size: 18px;
-    color: #323232;
     font-weight: 400;
 }
 
-.card h3 {
+.card p {
     height: 20px;
     font-size: 14px;
     color: #545454;

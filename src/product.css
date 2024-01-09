@@ -29,7 +29,7 @@
 
 .content h1 {
     font-size: 36px;
-    color: #E97F03;
+    color: var(--main-color);
     font-weight: 400;
 }
 
@@ -62,7 +62,7 @@
 .counter button {
     width: 40px;
     height: 40px;
-    color: #E97F03;
+    color: var(--main-color);
     font-size: 24px;
 }
 
@@ -76,7 +76,7 @@
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    background-color: #E97F03;
+    background-color: var(--main-color);
     font-size: 24px;
     font-weight: 400;
     color: #fff;
@@ -136,7 +136,7 @@
     height: 24px;
     opacity: 0;
     transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    fill: #e97f03;
+    fill: var(--main-color);
 }
 
 .favorite input:checked ~ .favorite-active-icon {
