@@ -1,6 +1,5 @@
 .wrapper {
-    margin: 24px var(--content-horizontal-margin);
-    margin-bottom: 0;
+    margin: 24px var(--content-horizontal-margin) 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
