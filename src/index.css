@@ -1,3 +1,5 @@
+@import url(globals.css);
+
 .wrapper {
     margin: 24px var(--content-horizontal-margin) 0;
     display: flex;
@@ -40,7 +42,7 @@
 
 .card a {
     margin: auto 0;
-    color: #323232;
+    color: var(--secondary-color);
 }
 
 .card h2 {
@@ -91,7 +93,7 @@
     height: 24px;
     opacity: 0;
     transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    fill: #e97f03;
+    fill: var(--primary-color);
 }
 
 .favorite input:checked ~ .favorite-active-icon {

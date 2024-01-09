@@ -1,3 +1,5 @@
+@import url(globals.css);
+
 .wrapper {
     margin: 24px var(--content-horizontal-margin);
 }
@@ -29,7 +31,7 @@
 
 .content h1 {
     font-size: 36px;
-    color: var(--main-color);
+    color: var(--primary-color);
     font-weight: 400;
 }
 
@@ -55,14 +57,14 @@
 
 .counter {
     display: flex;
-    border: 1px solid #323232;
+    border: 1px solid var(--secondary-color);;
     font-size: 20px;
 }
 
 .counter button {
     width: 40px;
     height: 40px;
-    color: var(--main-color);
+    color: var(--primary-color);
     font-size: 24px;
 }
 
@@ -76,7 +78,7 @@
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    background-color: var(--main-color);
+    background-color: var(--primary-color);
     font-size: 24px;
     font-weight: 400;
     color: #fff;
@@ -93,11 +95,11 @@
 }
 
 .counter button:first-child {
-    border-right: 1px solid #323232;
+    border-right: 1px solid var(--secondary-color);;
 }
 
 .counter button:last-child {
-    border-left: 1px solid #323232;
+    border-left: 1px solid var(--secondary-color);;
 }
 
 .favorite {
@@ -136,7 +138,7 @@
     height: 24px;
     opacity: 0;
     transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    fill: var(--main-color);
+    fill: var(--primary-color);
 }
 
 .favorite input:checked ~ .favorite-active-icon {

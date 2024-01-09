@@ -1,38 +1,6 @@
 :root {
     --background-color: #fff;
     --content-horizontal-margin: 24px;
-    --main-color: #e97f03;
-}
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-button {
-    background-color: transparent;
-}
-
-a {
-    text-decoration: none;
-}
-
-input[type='search']::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-input[type='search']::-webkit-search-cancel-button {
-    display: none;
-}
-
-.none {
-    display: none;
+    --primary-color: #e97f03;
+    --secondary-color: #323232;
 }
