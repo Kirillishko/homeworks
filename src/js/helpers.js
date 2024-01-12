@@ -11,6 +11,6 @@ const convertCurrencyToSign = (currency) => {
     }
 
     return sign;
-}
+};
 
 export default convertCurrencyToSign;

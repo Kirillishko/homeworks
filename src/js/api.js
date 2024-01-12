@@ -1,5 +1,4 @@
 const domain = "http://localhost:3006";
-const url = "http://localhost:3006";
 
 async function getData(url) {
     const response = await fetch(url);
@@ -15,15 +14,15 @@ async function getImage(url) {
 }
 
 function getItems() {
-    return getData(url + "/item");
+    return getData(domain + "/item");
 }
 
 function getItem(itemId) {
-    return getData(url + "/item/" + itemId);
+    return getData(domain + "/item/" + itemId);
 }
 
-function getFullPicture(pictureId) {
-    return getData(url + "/picture/full/" + pictureId);
+function getFullPicture(url) {
+    return getImage(domain + url);
 }
 
 function getMinPicture(url) {
