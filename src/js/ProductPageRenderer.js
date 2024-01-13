@@ -1,35 +1,81 @@
-import {getFullPicture, getItem} from "./api.js";
-import convertCurrencyToSign from "./helpers.js";
+import { getPicture, getItem } from './api.js';
+import convertCurrencyToSign from './helpers.js';
 
-let product;
+const main = document.getElementById('root-container');
 
-async function init() {
-    const href = window.location.href;
-    const id = href.substring(href.indexOf("=") + 1);
-    const data = await getItem(id);
-    product = data.content;
-    renderProduct(product);
-}
+let counter;
+let counterValue = 1;
 
-async function renderProduct(product) {
-    const {name, details, description, info, picture, price} = product;
+const onDecrementClick = (e) => {
+	e.preventDefault();
+	counterValue--;
+	counter.value = counterValue;
+};
 
-    const [firstText, secondText] = document.querySelectorAll(".text");
-    const [nameEl, infoEl] = firstText.children;
-    const detailsEl = secondText.children[1];
-    const priceEl = document.querySelector(".buttons").children[0];
-    const imageEl = document.querySelector(".image").children[0];
-    const currencySign = convertCurrencyToSign(price.currency);
+const onIncrementClick = (e) => {
+	e.preventDefault();
+	counterValue++;
+	counter.value = counterValue;
+};
 
-    nameEl.textContent = name;
-    infoEl.textContent = `${description}. ${info}`;
-    detailsEl.textContent = details;
-    priceEl.textContent = `${currencySign}${price.value}`;
+const renderProduct = async (product) => {
+	const { name, details, description, info, picture, price } = product;
+	const finalPrice = convertCurrencyToSign(price.currency) + price.value;
+	const image = getPicture(picture.path);
 
-    await getFullPicture(picture.path).then(fullPicture => {
-        imageEl.src = fullPicture;
-        imageEl.setAttribute("alt", picture.alt);
-    });
-}
+	const html = `<section class="content">
+				<div class="image">
+					<img alt="Product" src="${image}" />
+				</div>
+				<div class="info">
+					<div class="text">
+						<h2>${name}</h2>
+						<p>${description}. ${info}</p>
+					</div>
+					<div class="text">
+						<h3>Детали</h3>
+						<p>${details}</p>
+					</div>
+					<div class="buttons">
+						<h1>${finalPrice}</h1>
+						<form class="counter">
+							<button id="decrease">—</button>
+							<input id="counter" type="number" value="${counterValue}"/>
+							<button id="increase">+</button>
+						</form>
+						<button class="cart-button">Add to cart</button>
+						<label class="favorite">
+							<input type="checkbox" />
+							<svg class="favorite-icon">
+								<use href="#favorite-icon"></use>
+							</svg>
+							<svg class="favorite-active-icon">
+								<use href="#favorite-active-icon"></use>
+							</svg>
+						</label>
+					</div>
+				</div>
+			</section>`;
+
+	main.innerHTML = html;
+
+	counter = document.getElementById('counter');
+	const decrementButton = document.getElementById('decrease');
+	const incrementButton = document.getElementById('increase');
+	decrementButton.addEventListener('click', onDecrementClick);
+	incrementButton.addEventListener('click', onIncrementClick);
+};
+
+const init = async () => {
+	try {
+		const href = window.location.href;
+		const id = href.substring(href.indexOf('id=') + 3);
+		const data = await getItem(id);
+		const product = data.content;
+		renderProduct(product);
+	} catch (e) {
+		throw new Error(e);
+	}
+};
 
 init();

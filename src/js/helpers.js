@@ -1,16 +1,10 @@
 const convertCurrencyToSign = (currency) => {
-    let sign;
-
-    switch (currency) {
-        case "USD" :
-            sign = "$";
-            break;
-        default:
-            sign = "not assigned";
-            break;
-    }
-
-    return sign;
+	switch (currency) {
+		case 'USD':
+			return '$';
+		default:
+			return 'not assigned';
+	}
 };
 
 export default convertCurrencyToSign;

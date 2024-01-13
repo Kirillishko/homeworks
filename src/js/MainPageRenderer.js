@@ -1,93 +1,61 @@
-import {getItems, getMinPicture} from "./api.js";
-import convertCurrencyToSign from "./helpers.js";
+import { getItems, getPicture } from './api.js';
+import convertCurrencyToSign from './helpers.js';
 
-const main = document.getElementsByTagName("main")[0];
-let products = [];
+const main = document.getElementById('root-container');
+const searchInput = document.querySelector('.search-input');
 
-async function init() {
-    const data = await getItems();
-    products = data.content;
-    renderProducts(products);
-}
+searchInput.addEventListener('input', (e) => {
+	const value = e.target.value.toLowerCase();
 
-const searchInput = document.querySelector(".search-input");
+	for (let card of main.children) {
+		const cardName = card.querySelector('.info').getElementsByTagName('a')[0].textContent.toLowerCase();
 
-searchInput.addEventListener("input", (e) => {
-    const value = e.target.value.toLowerCase();
-    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(value));
-
-    deleteProducts();
-    renderProducts(filteredProducts);
+		if (cardName.includes(value)) {
+			card.classList.remove('none');
+		} else if (!card.classList.contains('none')) {
+			card.classList.add('none');
+		}
+	}
 });
 
-function deleteProducts() {
-    main.innerHTML = "";
-}
+const renderProducts = (products) => {
+	let html = '';
+	for (const product of products) {
+		const { id, like, picture, name, price } = product;
+		const finalPrice = convertCurrencyToSign(price.currency) + price.value;
+		const image = getPicture(picture.path);
 
-const favoriteHandler = (e) => {
-    const id = e.target.attributes.getNamedItem("data-id").value;
+		html += `   <figure class="card">
+		                <label class="favorite">
+			                <input type="checkbox" ${like && 'checked'}/>
+			                <svg class="favorite-icon">
+				               <use href="#favorite-icon"></use>
+			                </svg>
+			                <svg class="favorite-active-icon">
+			                	<use href="#favorite-active-icon"></use>
+			                </svg>
+		                </label>
+                        <a href="product.html?id=${id}"><img alt="${picture.alt}" src="${image}" /></a>
+	                	<figcaption class="info">
+                            <h2>
+                                <a href="product.html?id=${id}">${name}</a>
+                            </h2>
+                            <p>${finalPrice}</p>
+		                </figcaption>
+                    </figure>`;
+	}
 
-    for (const value of products) {
-        if (value.id === id) {
-            value.like = !value.like;
-            return;
-        }
-    }
+	main.innerHTML = html;
 };
 
-async function renderProducts(products) {
-    for (const product of products) {
-        const {id, like, picture, name, price} = product;
-        const currencySign = convertCurrencyToSign(price.currency);
-
-        const card = document.createElement("figure");
-        card.classList.add("card");
-        const favorite = document.createElement("label");
-        favorite.classList.add("favorite");
-        const checkbox = document.createElement("input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("data-id", id);
-        checkbox.addEventListener("click", (e) => favoriteHandler(e));
-        like && checkbox.setAttribute("checked", "checked");
-        const favoriteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        favoriteIcon.classList.add("favorite-icon");
-        const useFavoriteIcon = document.createElementNS("http://www.w3.org/2000/svg", "use");
-        useFavoriteIcon.setAttribute("href", "#favorite-icon");
-        const favoriteActiveIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        favoriteActiveIcon.classList.add("favorite-active-icon");
-        const useFavoriteActiveIcon = document.createElementNS("http://www.w3.org/2000/svg", "use");
-        useFavoriteActiveIcon.setAttribute("href", "#favorite-active-icon");
-        const figcaption = document.createElement("figcaption");
-        const productName = document.createElement("h2");
-        const productLink = document.createElement("a");
-        productLink.setAttribute("href", "product.html");
-        productLink.text = name;
-        const productPrice = document.createElement("p");
-        productPrice.innerHTML = `${currencySign}${price.value}`;
-
-
-        card.append(favorite);
-        favorite.append(checkbox);
-        favorite.append(favoriteIcon);
-        favoriteIcon.append(useFavoriteIcon);
-        favorite.append(favoriteActiveIcon);
-        favoriteActiveIcon.append(useFavoriteActiveIcon);
-
-        await getMinPicture(picture.path).then(minPicture => {
-            const image = document.createElement("img");
-            image.src = minPicture;
-            image.setAttribute("alt", picture.alt);
-            card.append(image);
-        });
-
-        figcaption.append(productName);
-        productName.append(productLink);
-        figcaption.append(productPrice);
-        card.append(figcaption);
-
-
-        main.append(card);
-    }
-}
+const init = async () => {
+	try {
+		const data = await getItems();
+		const products = data.content;
+		renderProducts(products);
+	} catch (e) {
+		throw new Error(e);
+	}
+};
 
 init();

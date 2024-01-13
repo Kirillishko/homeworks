@@ -1,33 +1,28 @@
-const domain = "http://localhost:3006";
+const apiPass = 'http://localhost:3006';
 
 async function getData(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+	const response = await fetch(url);
+	const data = await response.json();
+	return data;
 }
 
-async function getImage(url) {
-    const response = await fetch(url);
-    const blob = await response.blob();
-    const resultURL = URL.createObjectURL(blob);
-    return resultURL;
-}
+// function getImage(url) {
+// 	const response = await fetch(url);
+// 	const blob = await response.blob();
+// 	const resultURL = URL.createObjectURL(blob);
+// 	return resultURL;
+// }
 
 function getItems() {
-    return getData(domain + "/item");
+	return getData(apiPass + '/item');
 }
 
 function getItem(itemId) {
-    return getData(domain + "/item/" + itemId);
+	return getData(apiPass + '/item/' + itemId);
 }
 
-function getFullPicture(url) {
-    return getImage(domain + url);
+function getPicture(url) {
+	return apiPass + url;
 }
 
-function getMinPicture(url) {
-    return getImage(domain + url);
-}
-
-
-export {getItems, getItem, getMinPicture, getFullPicture};
+export { getItems, getItem, getPicture };

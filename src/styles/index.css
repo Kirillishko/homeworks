@@ -1,113 +1,117 @@
 @import url(globals.css);
 
-.wrapper {
-    margin: 24px var(--content-horizontal-margin) 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.container {
+	margin: 24px var(--content-horizontal-margin) 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .card {
-    width: 220px;
-    height: 272px;
-    padding: 40px 0 24px 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out, border-radius 0.1s ease-out;
+	width: 220px;
+	height: 272px;
+	padding: 40px 0 24px 0;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out, border-radius 0.1s ease-out;
 }
 
 .card:hover {
-    background-color: #f2f2f2;
-    -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+	background-color: #f2f2f2;
+	-webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+	-o-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 .card img {
-    margin: auto;
+	margin: auto;
 }
 
 .card figcaption {
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .card a {
-    margin: auto 0;
-    color: var(--secondary-color);
+	margin: auto;
+}
+
+.info a {
+	margin: auto 0;
+	color: var(--secondary-color);
 }
 
 .card h2 {
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
 }
 
 .card p {
-    height: 20px;
-    font-size: 14px;
-    color: #545454;
-    font-weight: 400;
+	height: 20px;
+	font-size: 14px;
+	color: #545454;
+	font-weight: 400;
 }
 
 .favorite {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 8px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 8px;
 }
 
 .favorite input {
-    display: none;
+	display: none;
 }
 
 .favorite-icon {
-    width: 24px;
-    height: 24px;
-    opacity: 1;
-    transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    position: absolute;
-    fill: #959595;
+	width: 24px;
+	height: 24px;
+	opacity: 1;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	position: absolute;
+	fill: #959595;
 }
 
 .favorite input:checked ~ .favorite-icon {
-    opacity: 0;
+	opacity: 0;
 }
 
 .favorite:hover .favorite-icon {
-    fill: #b18e64;
+	fill: #b18e64;
 }
 
 .favorite-active-icon {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    opacity: 0;
-    transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    fill: var(--primary-color);
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	opacity: 0;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	fill: var(--primary-color);
 }
 
 .favorite input:checked ~ .favorite-active-icon {
-    opacity: 1;
+	opacity: 1;
 }
 
 .favorite:hover input:checked ~ .favorite-active-icon {
-    fill: #cd8634;
+	fill: #cd8634;
 }
 
 @media (max-width: 376px) {
-    .card {
-        width: 155px;
-    }
+	.card {
+		width: 155px;
+	}
 }

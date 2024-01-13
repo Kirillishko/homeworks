@@ -1,205 +1,209 @@
 @import url(globals.css);
 
 .wrapper {
-    margin: 24px var(--content-horizontal-margin);
+	margin: 24px var(--content-horizontal-margin);
 }
 
 .content {
-    display: flex;
-    gap: 16px;
-    color: #000;
+	display: flex;
+	gap: 16px;
+	color: #000;
 }
 
 .image {
-    min-width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
+	min-width: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 0;
 }
 
 .image img {
-    height: 100%;
+	height: 100%;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 24px;
 }
 
 .content h1 {
-    font-size: 36px;
-    color: var(--primary-color);
-    font-weight: 400;
+	font-size: 36px;
+	color: var(--primary-color);
+	font-weight: 400;
 }
 
 .content h2 {
-    font-size: 24px;
-    font-weight: 700;
+	font-size: 24px;
+	font-weight: 700;
 }
 
 .content h3 {
-    font-size: 18px;
-    font-weight: 700;
+	font-size: 18px;
+	font-weight: 700;
 }
 
-.content h4 {
-    font-size: 14px;
-    font-weight: 400;
+.content p {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
 }
 
 .buttons {
-    display: flex;
-    gap: 16px;
+	display: flex;
+	gap: 16px;
+	max-height: 40px;
 }
 
 .counter {
-    display: flex;
-    border: 1px solid var(--secondary-color);;
-    font-size: 20px;
+	display: flex;
+	border: 1px solid var(--secondary-color);
+	font-size: 20px;
+	height: 100%;
 }
 
 .counter button {
-    width: 40px;
-    height: 40px;
-    color: var(--primary-color);
-    font-size: 24px;
+	width: 40px;
+	height: 40px;
+	color: var(--primary-color);
+	font-size: 24px;
 }
 
 .counter input {
-    font-size: 24px;
-    text-align: center;
-    width: 100px;
+	font-size: 24px;
+	text-align: center;
+	width: 100px;
 }
 
 .cart-button {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background-color: var(--primary-color);
-    font-size: 24px;
-    font-weight: 400;
-    color: #fff;
-    width: 160px;
-    transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: var(--primary-color);
+	font-size: 24px;
+	font-weight: 400;
+	color: #fff;
+	width: 160px;
+	transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out;
 }
 
 .cart-button:hover {
-    background-color: #E99330;
-    -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
-    -o-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #e99330;
+	-webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+	-o-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .counter button:first-child {
-    border-right: 1px solid var(--secondary-color);;
+	border-right: 1px solid var(--secondary-color);
 }
 
 .counter button:last-child {
-    border-left: 1px solid var(--secondary-color);;
+	border-left: 1px solid var(--secondary-color);
 }
 
 .favorite {
-    width: 24px;
-    height: 24px;
-    position: relative;
-    top: 0;
-    right: 0;
-    margin: 8px;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	top: 0;
+	right: 0;
+	margin: 8px;
 }
 
 .favorite input {
-    display: none;
+	display: none;
 }
 
 .favorite-icon {
-    width: 24px;
-    height: 24px;
-    opacity: 1;
-    transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    position: absolute;
-    fill: #959595;
+	width: 24px;
+	height: 24px;
+	opacity: 1;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	position: absolute;
+	fill: #959595;
 }
 
 .favorite input:checked ~ .favorite-icon {
-    opacity: 0;
+	opacity: 0;
 }
 
 .favorite:hover .favorite-icon {
-    fill: #b18e64;
+	fill: #b18e64;
 }
 
 .favorite-active-icon {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    opacity: 0;
-    transition: opacity 0.1s ease-out, fill 0.1s ease-out;
-    fill: var(--primary-color);
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	opacity: 0;
+	transition: opacity 0.1s ease-out, fill 0.1s ease-out;
+	fill: var(--primary-color);
 }
 
 .favorite input:checked ~ .favorite-active-icon {
-    opacity: 1;
+	opacity: 1;
 }
 
 .favorite:hover input:checked ~ .favorite-active-icon {
-    fill: #cd8634;
+	fill: #cd8634;
 }
 
 @media (max-width: 376px) {
-    .wrapper {
-        margin: 24px 0;
-    }
+	.wrapper {
+		margin: 24px 0;
+	}
 
-    .content {
-        flex-direction: column;
-    }
+	.content {
+		flex-direction: column;
+	}
 
-    .image {
-        background: #fff;
-        background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.00) 50%);
-        background: -o-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.00) 50%);
-        background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.00) 50%);
-        background: -ms-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.00) 50%);
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.00) 50%);
-        height: 200px;
-        padding: 16px;
-    }
+	.image {
+		background: #fff;
+		background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+		background: -o-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+		background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+		background: -ms-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+		height: 200px;
+		padding: 16px;
+	}
 
-    .info {
-        margin: 0 24px;
-    }
+	.info {
+		margin: 0 24px;
+	}
 
-    .text {
-        margin-bottom: 16px;
-    }
+	.text {
+		margin-bottom: 16px;
+	}
 
-    .buttons {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+	.buttons {
+		flex-wrap: wrap;
+		justify-content: space-between;
+		max-height: initial;
+	}
 
-    .buttons h1 {
-        order: 1;
-        width: 50%;
-    }
+	.buttons h1 {
+		order: 1;
+		width: 50%;
+	}
 
-    .favorite {
-        order: 2;
-    }
+	.favorite {
+		order: 2;
+	}
 
-    .counter {
-        order: 3;
-    }
+	.counter {
+		order: 3;
+	}
 
-    .counter input {
-        width: 60px;
-    }
+	.counter input {
+		width: 60px;
+	}
 
-    .cart-button {
-        order: 4;
-    }
+	.cart-button {
+		order: 4;
+	}
 }
