@@ -8,8 +8,11 @@ let counterValue = 1;
 
 const onDecrementClick = (e) => {
 	e.preventDefault();
-	counterValue--;
-	counter.value = counterValue;
+
+	if (counterValue > 0) {
+		counterValue--;
+		counter.value = counterValue;
+	}
 };
 
 const onIncrementClick = (e) => {
