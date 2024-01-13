@@ -9,7 +9,7 @@ let counterValue = 1;
 const onDecrementClick = (e) => {
 	e.preventDefault();
 
-	if (counterValue > 0) {
+	if (counterValue > 1) {
 		counterValue--;
 		counter.value = counterValue;
 	}
@@ -19,6 +19,17 @@ const onIncrementClick = (e) => {
 	e.preventDefault();
 	counterValue++;
 	counter.value = counterValue;
+};
+
+const onCounterChange = (e) => {
+	e.preventDefault();
+
+	let value = Math.floor(+e.target.value);
+
+	if (value < 1) e.target.value = 1;
+	else e.target.value = value;
+
+	counterValue = e.target.value;
 };
 
 const renderProduct = async (product) => {
@@ -63,6 +74,7 @@ const renderProduct = async (product) => {
 	main.innerHTML = html;
 
 	counter = document.getElementById('counter');
+	counter.addEventListener('change', onCounterChange);
 	const decrementButton = document.getElementById('decrease');
 	const incrementButton = document.getElementById('increase');
 	decrementButton.addEventListener('click', onDecrementClick);
