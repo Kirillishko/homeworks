@@ -35,14 +35,14 @@ const renderProducts = (products) => {
 			                	<use href="#favorite-active-icon"></use>
 			                </svg>
 		                </label>
-                        <a href="product.html?id=${id}"><img alt="${picture.alt}" src="${image}" /></a>
-	                	<figcaption class="info">
-                            <h2>
-                                <a href="product.html?id=${id}">${name}</a>
-                            </h2>
-                            <p>${finalPrice}</p>
+		                <a href="product.html?id=${id}"><img alt="${picture.alt}" src="${image}" /></a>
+		            	<figcaption class="info">
+		                    <h2>
+		                        <a href="product.html?id=${id}">${name}</a>
+		                    </h2>
+		                    <p>${finalPrice}</p>
 		                </figcaption>
-                    </figure>`;
+		            </figure>`;
 	}
 
 	main.innerHTML = html;
