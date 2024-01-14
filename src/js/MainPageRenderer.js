@@ -11,9 +11,9 @@ searchInput.addEventListener('input', (e) => {
 		const cardName = card.querySelector('.info').getElementsByTagName('a')[0].textContent.toLowerCase();
 
 		if (cardName.includes(value)) {
-			card.classList.remove('none');
-		} else if (!card.classList.contains('none')) {
-			card.classList.add('none');
+			card.classList.remove('hidden');
+		} else {
+			card.classList.add('hidden');
 		}
 	}
 });
