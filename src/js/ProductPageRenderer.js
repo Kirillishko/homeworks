@@ -67,6 +67,7 @@ const renderProduct = async (product) => {
 			counterInput.value = counterValue - 1;
 		}
 	});
+
 	incrementButton.addEventListener('click', (e) => {
 		e.preventDefault();
 
