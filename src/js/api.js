@@ -21,8 +21,8 @@ function getItem(itemId) {
 	return getData(apiPass + '/item/' + itemId);
 }
 
-function getPicture(url) {
+function getImagePath(url) {
 	return apiPass + url;
 }
 
-export { getItems, getItem, getPicture };
+export { getItems, getItem, getImagePath };
