@@ -1,8 +1,25 @@
 import { getImagePath, getItem } from './api.js';
-import convertCurrencyToSign from './helpers.js';
+import { convertCurrencyToSign } from './helpers.js';
 
 const rootContainer = document.getElementById('root-container');
 const minCounterValue = 1;
+
+const onDecrementProductCountClick = (e, counterInput) => {
+	e.preventDefault();
+
+	const counterValue = +counterInput.value;
+
+	if (counterValue > minCounterValue) {
+		counterInput.value = counterValue - 1;
+	}
+};
+
+const onIncrementProductCountClick = (e, counterInput) => {
+	e.preventDefault();
+
+	const counterValue = +counterInput.value;
+	counterInput.value = counterValue + 1;
+};
 
 const onCounterChange = (e) => {
 	e.preventDefault();
@@ -52,28 +69,16 @@ const renderProduct = async (product) => {
 
 	rootContainer.innerHTML = html;
 
-	const counterInput = document.getElementById('productCountInput');
+	const productCountForm = document.querySelector('.productCountForm');
+
+	const counterInput = productCountForm.querySelector('#productCountInput');
 	counterInput.addEventListener('change', onCounterChange);
 
-	const decrementButton = document.getElementById('decreaseProductCount');
-	const incrementButton = document.getElementById('increaseProductCount');
+	const incrementButton = productCountForm.querySelector('#increaseProductCount');
+	const decrementButton = productCountForm.querySelector('#decreaseProductCount');
 
-	decrementButton.addEventListener('click', (e) => {
-		e.preventDefault();
-
-		const counterValue = +counterInput.value;
-
-		if (counterValue > minCounterValue) {
-			counterInput.value = counterValue - 1;
-		}
-	});
-
-	incrementButton.addEventListener('click', (e) => {
-		e.preventDefault();
-
-		const counterValue = +counterInput.value;
-		counterInput.value = counterValue + 1;
-	});
+	incrementButton.addEventListener('click', (e) => onIncrementProductCountClick(e, counterInput));
+	decrementButton.addEventListener('click', (e) => onDecrementProductCountClick(e, counterInput));
 };
 
 const init = async () => {

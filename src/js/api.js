@@ -1,21 +1,21 @@
 const apiPass = 'http://localhost:3006';
 
-async function getData(url) {
+const getData = async (url) => {
 	const response = await fetch(url);
 	const data = await response.json();
 	return data;
-}
+};
 
-function getItems() {
+const getItems = () => {
 	return getData(apiPass + '/item');
-}
+};
 
-function getItem(itemId) {
+const getItem = (itemId) => {
 	return getData(apiPass + '/item/' + itemId);
-}
+};
 
-function getImagePath(url) {
+const getImagePath = (url) => {
 	return apiPass + url;
-}
+};
 
 export { getItems, getItem, getImagePath };

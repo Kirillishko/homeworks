@@ -7,4 +7,4 @@ const convertCurrencyToSign = (currency) => {
 	}
 };
 
-export default convertCurrencyToSign;
+export { convertCurrencyToSign };

@@ -1,5 +1,5 @@
 import { getItems, getImagePath } from './api.js';
-import convertCurrencyToSign from './helpers.js';
+import { convertCurrencyToSign } from './helpers.js';
 
 const rootContainer = document.getElementById('root-container');
 const searchInput = document.querySelector('.search-input');
