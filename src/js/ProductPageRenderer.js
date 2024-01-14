@@ -2,31 +2,13 @@ import { getImagePath, getItem } from './api.js';
 import convertCurrencyToSign from './helpers.js';
 
 const rootContainer = document.getElementById('root-container');
-
-let counter;
-let counterValue = 1;
-
-const onDecrementClick = (e) => {
-	e.preventDefault();
-
-	if (counterValue > 1) {
-		counterValue--;
-		counter.value = counterValue;
-	}
-};
-
-const onIncrementClick = (e) => {
-	e.preventDefault();
-	counterValue++;
-	counter.value = counterValue;
-};
+const minCounterValue = 1;
 
 const onCounterChange = (e) => {
 	e.preventDefault();
 
-	const value = Math.floor(+e.target.value);
-	e.target.value = value < 1 ? 1 : value;
-	counterValue = e.target.value;
+	const counterValue = Math.floor(+e.target.value);
+	e.target.value = counterValue < minCounterValue ? minCounterValue : counterValue;
 };
 
 const renderProduct = async (product) => {
@@ -49,10 +31,10 @@ const renderProduct = async (product) => {
 					</div>
 					<div class="buttons">
 						<h1>${priceWithSign}</h1>
-						<form class="counter">
-							<button id="decrease">—</button>
-							<input id="counter" type="number" value="${counterValue}"/>
-							<button id="increase">+</button>
+						<form class="productCountForm">
+							<button id="decreaseProductCount">—</button>
+							<input id="productCountInput" type="number" value="${minCounterValue}"/>
+							<button id="increaseProductCount">+</button>
 						</form>
 						<button class="cart-button">Add to cart</button>
 						<label class="favorite">
@@ -70,12 +52,27 @@ const renderProduct = async (product) => {
 
 	rootContainer.innerHTML = html;
 
-	counter = document.getElementById('counter');
-	counter.addEventListener('change', onCounterChange);
-	const decrementButton = document.getElementById('decrease');
-	const incrementButton = document.getElementById('increase');
-	decrementButton.addEventListener('click', onDecrementClick);
-	incrementButton.addEventListener('click', onIncrementClick);
+	const counterInput = document.getElementById('productCountInput');
+	counterInput.addEventListener('change', onCounterChange);
+
+	const decrementButton = document.getElementById('decreaseProductCount');
+	const incrementButton = document.getElementById('increaseProductCount');
+
+	decrementButton.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		const counterValue = +counterInput.value;
+
+		if (counterValue > minCounterValue) {
+			counterInput.value = counterValue - 1;
+		}
+	});
+	incrementButton.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		const counterValue = +counterInput.value;
+		counterInput.value = counterValue + 1;
+	});
 };
 
 const init = async () => {
