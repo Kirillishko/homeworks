@@ -24,11 +24,8 @@ const onIncrementClick = (e) => {
 const onCounterChange = (e) => {
 	e.preventDefault();
 
-	let value = Math.floor(+e.target.value);
-
-	if (value < 1) e.target.value = 1;
-	else e.target.value = value;
-
+	const value = Math.floor(+e.target.value);
+	e.target.value = value < 1 ? 1 : value;
 	counterValue = e.target.value;
 };
 
