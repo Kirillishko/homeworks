@@ -50,9 +50,8 @@ const renderProducts = (products) => {
 
 const init = async () => {
 	try {
-		const data = await getItems();
-		const products = data.content;
-		renderProducts(products);
+		const { content } = await getItems();
+		renderProducts(content);
 	} catch (e) {
 		console.error(e);
 	}
