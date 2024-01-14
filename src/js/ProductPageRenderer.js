@@ -1,7 +1,7 @@
 import { getImagePath, getItem } from './api.js';
 import convertCurrencyToSign from './helpers.js';
 
-const main = document.getElementById('root-container');
+const rootContainer = document.getElementById('root-container');
 
 let counter;
 let counterValue = 1;
@@ -68,7 +68,7 @@ const renderProduct = async (product) => {
 				</div>
 			</section>`;
 
-	main.innerHTML = html;
+	rootContainer.innerHTML = html;
 
 	counter = document.getElementById('counter');
 	counter.addEventListener('change', onCounterChange);
