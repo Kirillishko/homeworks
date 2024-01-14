@@ -1,4 +1,4 @@
-import { getPicture, getItem } from './api.js';
+import { getImagePath, getItem } from './api.js';
 import convertCurrencyToSign from './helpers.js';
 
 const main = document.getElementById('root-container');
@@ -34,12 +34,12 @@ const onCounterChange = (e) => {
 
 const renderProduct = async (product) => {
 	const { name, details, description, info, picture, price } = product;
-	const finalPrice = convertCurrencyToSign(price.currency) + price.value;
-	const image = getPicture(picture.path);
+	const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
+	const imagePath = getImagePath(picture.path);
 
 	const html = `<section class="content">
 				<div class="image">
-					<img alt="Product" src="${image}" />
+					<img alt="Product" src="${imagePath}" />
 				</div>
 				<div class="info">
 					<div class="text">
@@ -51,7 +51,7 @@ const renderProduct = async (product) => {
 						<p>${details}</p>
 					</div>
 					<div class="buttons">
-						<h1>${finalPrice}</h1>
+						<h1>${priceWithSign}</h1>
 						<form class="counter">
 							<button id="decrease">—</button>
 							<input id="counter" type="number" value="${counterValue}"/>
@@ -85,11 +85,10 @@ const init = async () => {
 	try {
 		const href = window.location.href;
 		const id = href.substring(href.indexOf('id=') + 3);
-		const data = await getItem(id);
-		const product = data.content;
-		renderProduct(product);
+		const { content } = await getItem(id);
+		renderProduct(content);
 	} catch (e) {
-		throw new Error(e);
+		console.error(e);
 	}
 };
 
