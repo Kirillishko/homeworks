@@ -54,7 +54,7 @@ const init = async () => {
 		const products = data.content;
 		renderProducts(products);
 	} catch (e) {
-		throw new Error(e);
+		console.error(e);
 	}
 };
 
