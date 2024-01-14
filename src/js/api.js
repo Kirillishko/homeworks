@@ -6,13 +6,6 @@ async function getData(url) {
 	return data;
 }
 
-// function getImage(url) {
-// 	const response = await fetch(url);
-// 	const blob = await response.blob();
-// 	const resultURL = URL.createObjectURL(blob);
-// 	return resultURL;
-// }
-
 function getItems() {
 	return getData(apiPass + '/item');
 }
