@@ -1,13 +1,13 @@
 import { getItems, getImagePath } from './api.js';
 import convertCurrencyToSign from './helpers.js';
 
-const main = document.getElementById('root-container');
+const rootContainer = document.getElementById('root-container');
 const searchInput = document.querySelector('.search-input');
 
 searchInput.addEventListener('input', (e) => {
 	const value = e.target.value.toLowerCase();
 
-	for (let card of main.children) {
+	for (let card of rootContainer.children) {
 		const cardName = card.querySelector('.card-name').textContent.toLowerCase();
 
 		if (cardName.includes(value)) {
@@ -47,7 +47,7 @@ const renderProducts = (products) => {
 		);
 	}, '');
 
-	main.innerHTML = html;
+	rootContainer.innerHTML = html;
 };
 
 const init = async () => {
