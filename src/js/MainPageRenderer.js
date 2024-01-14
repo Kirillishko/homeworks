@@ -8,7 +8,7 @@ searchInput.addEventListener('input', (e) => {
 	const value = e.target.value.toLowerCase();
 
 	for (let card of main.children) {
-		const cardName = card.querySelector('.info').getElementsByTagName('a')[0].textContent.toLowerCase();
+		const cardName = card.querySelector('.card-name').textContent.toLowerCase();
 
 		if (cardName.includes(value)) {
 			card.classList.remove('hidden');
@@ -39,7 +39,7 @@ const renderProducts = (products) => {
 						<a href="product.html?id=${id}"><img alt="${picture.alt}" src="${imagePath}" /></a>
 						<figcaption class="info">
 							<h2>
-								<a href="product.html?id=${id}">${name}</a>
+								<a class="card-name" href="product.html?id=${id}">${name}</a>
 							</h2>
 							<p>${priceWithSign}</p>
 						</figcaption>
