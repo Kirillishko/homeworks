@@ -1,0 +1,44 @@
+@import url(globals.css);
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto';
+}
+
+button {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	background-color: var(--background-color);
+}
+
+input[type='search']::-ms-clear {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+	display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+}

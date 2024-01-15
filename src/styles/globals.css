@@ -1,0 +1,10 @@
+:root {
+	--background-color: #fff;
+	--content-horizontal-margin: 24px;
+	--primary-color: #e97f03;
+	--secondary-color: #323232;
+}
+
+.hidden {
+	display: none;
+}
