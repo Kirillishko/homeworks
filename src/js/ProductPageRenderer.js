@@ -1,5 +1,9 @@
-import { getImagePath, getItem } from './api.js';
-import { convertCurrencyToSign } from './helpers.js';
+import '@styles/header.css';
+import '@styles/product.css';
+import '@styles/reset.css';
+import '@styles/globals.css';
+import { getImagePath, getItem } from './api';
+import { convertCurrencyToSign } from './helpers';
 
 const rootContainer = document.getElementById('root-container');
 const minCounterValue = 1;

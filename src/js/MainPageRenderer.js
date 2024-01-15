@@ -1,5 +1,9 @@
-import { getItems, getImagePath } from './api.js';
-import { convertCurrencyToSign } from './helpers.js';
+import '@styles/header';
+import '@styles/index';
+import '@styles/reset';
+import '@styles/globals';
+import { getItems, getImagePath } from './api';
+import { convertCurrencyToSign } from './helpers';
 
 const rootContainer = document.getElementById('root-container');
 const searchInput = document.querySelector('.search-input');
@@ -15,6 +19,7 @@ const debounce = (callback, delay) => {
 
 const onSearchInput = () => {
 	const value = searchInput.value;
+	console.log(value);
 
 	for (let card of rootContainer.children) {
 		const cardName = card.querySelector('.card-name').textContent.toLowerCase();
