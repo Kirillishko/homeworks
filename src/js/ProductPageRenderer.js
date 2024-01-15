@@ -77,8 +77,9 @@ const renderProduct = async (product) => {
 
 const init = async () => {
 	try {
-		const href = window.location.href;
-		const id = href.substring(href.indexOf('id=') + 3);
+		const href = new URL(window.location.href);
+		const params = new URLSearchParams(href.searchParams);
+		const id = params.get('id');
 		const { content } = await getItem(id);
 		renderProduct(content);
 	} catch (e) {
