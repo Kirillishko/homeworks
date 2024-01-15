@@ -64,14 +64,14 @@
 	height: 100%;
 }
 
-.productCountForm button {
+.productCountForm input[type='button'] {
 	width: 40px;
 	height: 40px;
 	color: var(--primary-color);
 	font-size: 24px;
 }
 
-.productCountForm input {
+.productCountForm input[type='number'] {
 	font-size: 24px;
 	text-align: center;
 	width: 100px;
@@ -97,11 +97,11 @@
 	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.productCountForm button:first-child {
+.productCountForm input[type='button']:first-child {
 	border-right: 1px solid var(--secondary-color);
 }
 
-.productCountForm button:last-child {
+.productCountForm input[type='button']:last-child {
 	border-left: 1px solid var(--secondary-color);
 }
 
@@ -200,7 +200,7 @@
 		order: 3;
 	}
 
-	.productCountForm input {
+	.productCountForm input[type='number'] {
 		width: 60px;
 	}
 

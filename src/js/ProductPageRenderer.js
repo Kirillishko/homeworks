@@ -5,8 +5,6 @@ const rootContainer = document.getElementById('root-container');
 const minCounterValue = 1;
 
 const onDecrementProductCountClick = (e, counterInput) => {
-	e.preventDefault();
-
 	const counterValue = +counterInput.value;
 
 	if (counterValue > minCounterValue) {
@@ -15,15 +13,11 @@ const onDecrementProductCountClick = (e, counterInput) => {
 };
 
 const onIncrementProductCountClick = (e, counterInput) => {
-	e.preventDefault();
-
 	const counterValue = +counterInput.value;
 	counterInput.value = counterValue + 1;
 };
 
 const onCounterChange = (e) => {
-	e.preventDefault();
-
 	const counterValue = Math.floor(+e.target.value);
 	e.target.value = counterValue < minCounterValue ? minCounterValue : counterValue;
 };
@@ -49,9 +43,9 @@ const renderProduct = async (product) => {
 					<div class="buttons">
 						<h1>${priceWithSign}</h1>
 						<form class="productCountForm">
-							<button id="decreaseProductCount">—</button>
+							<input id="decreaseProductCount" type="button" value="—"/>
 							<input id="productCountInput" type="number" value="${minCounterValue}"/>
-							<button id="increaseProductCount">+</button>
+							<input id="increaseProductCount" type="button" value="+"/>
 						</form>
 						<button class="cart-button">Add to cart</button>
 						<label class="favorite">

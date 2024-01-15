@@ -1,3 +1,5 @@
+@import url(globals.css);
+
 *,
 *::before,
 *::after {
@@ -15,6 +17,10 @@ button {
 
 a {
 	text-decoration: none;
+}
+
+input {
+	background-color: var(--background-color);
 }
 
 input[type='search']::-ms-clear {
