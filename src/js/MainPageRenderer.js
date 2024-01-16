@@ -11,7 +11,6 @@ const searchInput = document.querySelector('.search-input');
 const debounce = (callback, delay) => {
 	let timeout;
 	return function () {
-		console.log('clear');
 		clearTimeout(timeout);
 		timeout = setTimeout(callback, delay);
 	};
@@ -19,7 +18,6 @@ const debounce = (callback, delay) => {
 
 const onSearchInput = () => {
 	const value = searchInput.value;
-	console.log(value);
 
 	for (let card of rootContainer.children) {
 		const cardName = card.querySelector('.card-name').textContent.toLowerCase();
@@ -33,26 +31,6 @@ const onSearchInput = () => {
 };
 
 searchInput.addEventListener('input', debounce(onSearchInput, 1000));
-
-// searchInput.addEventListener('input', (e) => {
-// 	let timer;
-
-// 	const onSearchInput = () => {
-// 		const value = e.target.value.toLowerCase();
-
-// 		for (let card of rootContainer.children) {
-// 			const cardName = card.querySelector('.card-name').textContent.toLowerCase();
-
-// 			if (cardName.includes(value)) {
-// 				card.classList.remove('hidden');
-// 			} else {
-// 				card.classList.add('hidden');
-// 			}
-// 		}
-// 	};
-
-// 	timer = setTimeout() onSearchInput();
-// });
 
 const renderProducts = (products) => {
 	const html = products.reduce((accumulator, value) => {
