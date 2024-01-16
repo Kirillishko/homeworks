@@ -1,7 +1,7 @@
-import '@styles/header.css';
-import '@styles/product.css';
-import '@styles/reset.css';
-import '@styles/globals.css';
+import '@styles/header';
+import '@styles/product';
+import '@styles/reset';
+import '@styles/globals';
 import { getImagePath, getItem } from './api';
 import { convertCurrencyToSign } from './helpers';
 

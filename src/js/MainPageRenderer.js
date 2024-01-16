@@ -17,7 +17,7 @@ const debounce = (callback, delay) => {
 };
 
 const onSearchInput = () => {
-	const value = searchInput.value;
+	const value = searchInput.value.toLowerCase();
 
 	for (let card of rootContainer.children) {
 		const cardName = card.querySelector('.card-name').textContent.toLowerCase();

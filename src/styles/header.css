@@ -1,4 +1,4 @@
-@import url(globals.css);
+@import url(variables.css);
 
 .header {
 	margin: 16px var(--content-horizontal-margin) 0;
