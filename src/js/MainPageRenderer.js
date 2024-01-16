@@ -1,11 +1,23 @@
-import { getItems, getImagePath } from './api.js';
-import { convertCurrencyToSign } from './helpers.js';
+import '@styles/header';
+import '@styles/index';
+import '@styles/reset';
+import '@styles/globals';
+import { getItems, getImagePath } from './api';
+import { convertCurrencyToSign } from './helpers';
 
 const rootContainer = document.getElementById('root-container');
 const searchInput = document.querySelector('.search-input');
 
-searchInput.addEventListener('input', (e) => {
-	const value = e.target.value.toLowerCase();
+const debounce = (callback, delay) => {
+	let timeout;
+	return function () {
+		clearTimeout(timeout);
+		timeout = setTimeout(callback, delay);
+	};
+};
+
+const onSearchInput = () => {
+	const value = searchInput.value.toLowerCase();
 
 	for (let card of rootContainer.children) {
 		const cardName = card.querySelector('.card-name').textContent.toLowerCase();
@@ -16,7 +28,9 @@ searchInput.addEventListener('input', (e) => {
 			card.classList.add('hidden');
 		}
 	}
-});
+};
+
+searchInput.addEventListener('input', debounce(onSearchInput, 1000));
 
 const renderProducts = (products) => {
 	const html = products.reduce((accumulator, value) => {
