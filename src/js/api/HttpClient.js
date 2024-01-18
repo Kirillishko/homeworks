@@ -1,12 +1,13 @@
 import axios from 'axios';
 import createModal from '../modal';
 
-const apiPass = 'http://localhost:3005';
-const HttpClient = axios.create({});
+const apiPass = 'http://localhost:3006';
+const HttpClient = axios.create({
+	baseURL: apiPass,
+});
 
 HttpClient.interceptors.request.use(
 	function (config) {
-		config.baseURL = apiPass;
 		return config;
 	},
 	function (error) {
