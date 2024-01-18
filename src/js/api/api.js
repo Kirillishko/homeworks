@@ -5,16 +5,10 @@ const getData = async (url) => {
 	return response.data;
 };
 
-const getItems = () => {
-	return getData('/item');
-};
+const getItems = () => getData('/item');
 
-const getItem = (itemId) => {
-	return getData('/item/' + itemId);
-};
+const getItem = (itemId) => getData(`/item/${itemId}`);
 
-const getImagePath = (url) => {
-	return apiPass + url;
-};
+const getImagePath = (url) => apiPass + url;
 
 export { getItems, getItem, getImagePath };
