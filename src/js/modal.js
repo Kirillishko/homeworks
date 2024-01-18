@@ -14,7 +14,13 @@ const createModal = (errorName, errorDescription) => {
 
 	const modalElement = rootContainer.querySelector('#modal');
 	const modalButton = modalElement.querySelector('.modal_content input');
-	modalButton.addEventListener('click', () => modalElement.remove());
+
+	const handleButtonClick = () => {
+		modalElement.remove();
+		modalButton.removeEventListener('click', handleButtonClick);
+	};
+
+	modalButton.addEventListener('click', handleButtonClick);
 };
 
 export default createModal;
