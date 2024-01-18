@@ -2,7 +2,8 @@ import '@styles/header';
 import '@styles/index';
 import '@styles/reset';
 import '@styles/globals';
-import { getItems, getImagePath } from './api';
+import '@styles/modal';
+import { getItems, getImagePath } from './api/api';
 import { convertCurrencyToSign } from './helpers';
 
 const rootContainer = document.getElementById('root-container');

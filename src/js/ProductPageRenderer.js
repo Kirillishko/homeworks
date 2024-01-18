@@ -2,7 +2,7 @@ import '@styles/header';
 import '@styles/product';
 import '@styles/reset';
 import '@styles/globals';
-import { getImagePath, getItem } from './api';
+import { getImagePath, getItem } from './api/api';
 import { convertCurrencyToSign } from './helpers';
 
 const rootContainer = document.getElementById('root-container');
