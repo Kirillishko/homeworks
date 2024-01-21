@@ -1,38 +1,65 @@
 {
-	"name": "homeworks",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "cross-env NODE_ENV=prod webpack --mode production",
-		"dev": "cross-env NODE_ENV=dev webpack --mode development",
-		"start": "cross-env NODE_ENV=dev webpack server --mode development --open"
-	},
-	"author": "Kirillishko",
-	"license": "ISC",
-	"devDependencies": {
-		"@babel/cli": "^7.23.4",
-		"@babel/core": "^7.23.7",
-		"@babel/polyfill": "^7.12.1",
-		"@babel/preset-env": "^7.23.8",
-		"babel-loader": "^9.1.3",
-		"babel-preset-minify": "^0.5.2",
-		"clean-webpack-plugin": "^4.0.0",
-		"cross-env": "^7.0.3",
-		"css-loader": "^6.9.0",
-		"css-minimizer-webpack-plugin": "^5.0.1",
-		"dotenv": "^16.3.1",
-		"html-loader": "^4.2.0",
-		"html-webpack-plugin": "^5.6.0",
-		"mini-css-extract-plugin": "^2.7.7",
-		"style-loader": "^3.3.4",
-		"terser-webpack-plugin": "^5.3.10",
-		"webpack": "^5.89.0",
-		"webpack-cli": "^5.1.4",
-		"webpack-dev-server": "^4.15.1"
-	},
-	"dependencies": {
-		"axios": "^1.6.5"
-	}
+  "name": "homeworks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=prod webpack --mode production",
+    "dev": "cross-env NODE_ENV=dev webpack --mode development",
+    "start": "cross-env NODE_ENV=dev webpack server --mode development --open",
+    "Rstart": "react-scripts start",
+    "Rbuild": "react-scripts build",
+    "Rtest": "react-scripts test",
+    "Reject": "react-scripts eject"
+  },
+  "author": "Kirillishko",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/css-modules": "^1.0.5",
+    "babel-loader": "^9.1.3",
+    "babel-preset-minify": "^0.5.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.9.0",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "dotenv": "^16.3.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.7.7",
+    "style-loader": "^3.3.4",
+    "terser-webpack-plugin": "^5.3.10",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
