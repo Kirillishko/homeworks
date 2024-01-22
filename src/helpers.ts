@@ -9,9 +9,9 @@ const convertCurrencyToSign = (currency: string) => {
     }
 };
 
-const getFilterProducts = (products: IProduct[], inputSearch: string) => {
+const getFilteredProducts = (products: IProduct[], inputSearch: string) => {
     const filter = inputSearch.toLowerCase();
     return products.filter(product => product.name.toLowerCase().includes(filter));
 };
 
-export {convertCurrencyToSign, getFilterProducts};
+export {convertCurrencyToSign, getFilteredProducts};

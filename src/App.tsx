@@ -7,7 +7,7 @@ import {getItems} from "./api/api";
 import {Route, Routes} from "react-router-dom";
 import ProductPage from "./components/ProductPage/ProductPage";
 import useApi from "./hooks/useApi";
-import {getFilterProducts} from "./helpers";
+import {getFilteredProducts} from "./helpers";
 import useDebouncedValue from "./hooks/useDebouncedValue";
 import ProductList from "./components/ProductList/ProductList";
 
@@ -15,7 +15,7 @@ const App = () => {
     const searchDelay = 1000;
     const [searchInput, setSearchInput] = useState<string>("");
     const [, products] = useApi(getItems, []);
-    const filteredProducts = useDebouncedValue(products, getFilterProducts(products, searchInput), searchDelay);
+    const filteredProducts = useDebouncedValue(products, getFilteredProducts(products, searchInput), searchDelay);
 
     return (
         <>
