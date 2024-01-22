@@ -12,7 +12,6 @@ interface ProductProps {
 const ProductItem = ({product}: ProductProps) => {
     const {id, like, picture, name, price} = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
-    const imagePath = getImagePath(picture.path);
 
     const [likeCheck, setLikeCheck] = useState(like);
 
@@ -33,7 +32,7 @@ const ProductItem = ({product}: ProductProps) => {
                     </g >
                 </svg >
             </label >
-            <Link to={`products/${id}`} ><img alt={picture.alt} src={imagePath} /></Link >
+            <Link to={`products/${id}`} ><img alt={picture.alt} src={getImagePath(picture.path)} /></Link >
             <figcaption className={styles.info} >
                 <h2 >
                     <Link to={`products/${id}`} >{name}</Link >

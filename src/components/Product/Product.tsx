@@ -12,7 +12,6 @@ const Product = ({product}: ProductProps) => {
     const minCounterValue = 1;
     const {name, details, description, info, picture, price, like} = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
-    const imagePath = getImagePath(picture.path);
 
     const [productCount, setProductCount] = useState(1);
     const [likeCheck, setLikeCheck] = useState(like);
@@ -36,7 +35,7 @@ const Product = ({product}: ProductProps) => {
         <main className={styles.wrapper} >
             <section className={styles.content} >
                 <div className={styles.image} >
-                    <img alt={picture.alt} src={imagePath} />
+                    <img alt={picture.alt} src={getImagePath(picture.path)} />
                 </div >
                 <div className={styles.info} >
                     <div className={styles.text} >

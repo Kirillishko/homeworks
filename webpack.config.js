@@ -25,11 +25,7 @@ const optimization = () => {
 
 module.exports = {
     context: path.resolve(__dirname),
-    // entry: {
-    // 	mainPage: ['@babel/polyfill', '/src/js/MainPageRenderer.js'],
-    // 	productPage: ['@babel/polyfill', '/src/js/ProductPageRenderer.js'],
-    // },
-    entry: path.resolve(__dirname, "./src/index.tsx"),
+    entry: ["@babel/polyfill", path.resolve(__dirname, "./src/index.tsx")],
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "dist"),
@@ -106,7 +102,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                test: /\.(woff(2)?|eot|ttf|otf)$/,
                 type: "asset/inline",
             },
         ],

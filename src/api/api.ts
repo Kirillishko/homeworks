@@ -1,4 +1,4 @@
-import {HttpClient, apiPass} from "./HttpClient";
+import {apiPass, HttpClient} from "./HttpClient";
 import IProduct from "IProduct";
 
 

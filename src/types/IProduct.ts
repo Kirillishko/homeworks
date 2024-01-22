@@ -5,7 +5,6 @@ interface IProduct {
     info?: string,
     details?: string,
     like: boolean,
-
     picture: {
         path: string,
         alt: string

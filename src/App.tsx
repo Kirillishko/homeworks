@@ -1,41 +1,28 @@
-import React, {ChangeEvent, useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./styles/globals.css";
 import "./styles/reset.css";
 import "./styles/variables.css";
 import Header from "./components/Header/Header";
-import ProductList from "./components/ProductList/ProductList";
 import {getItems} from "./api/api";
-import IProduct from "IProduct";
-import useDebounce from "./hooks/useDebounce";
 import {Route, Routes} from "react-router-dom";
 import ProductPage from "./components/ProductPage/ProductPage";
+import useApi from "./hooks/useApi";
+import {getFilterProducts} from "./helpers";
+import useDebouncedValue from "./hooks/useDebouncedValue";
+import ProductList from "./components/ProductList/ProductList";
 
 const App = () => {
+    const searchDelay = 1000;
     const [searchInput, setSearchInput] = useState<string>("");
-    const [products, setProducts] = useState<IProduct[]>([]);
-
-    const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.toLowerCase();
-        setSearchInput(value);
-    };
-
-    const filterProducts = () => {
-        const filter = searchInput.toLowerCase();
-        getItems().then((products) => {
-            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(filter));
-            setProducts(filteredProducts);
-        });
-    };
-
-    const searchDebounce = useDebounce(filterProducts, 1000);
-    useEffect(searchDebounce, [searchInput]);
+    const [, products] = useApi(getItems, []);
+    const filteredProducts = useDebouncedValue(products, getFilterProducts(products, searchInput), searchDelay);
 
     return (
         <>
-            <Header searchInputHandler={onSearchInputChange} />
+            <Header setSearchInput={setSearchInput} />
             <main >
                 <Routes >
-                    <Route path="/" element={<ProductList products={products} />} />
+                    <Route path="/" element={<ProductList products={filteredProducts} />} />
                     <Route path="products/:id" element={<ProductPage />} />
                 </Routes >
             </main >

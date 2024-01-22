@@ -2,10 +2,16 @@ import React, {ChangeEvent} from "react";
 import styles from "./header.module.css";
 
 interface HeaderProps {
-    searchInputHandler: (e: ChangeEvent<HTMLInputElement>) => void,
+    setSearchInput: (value: React.SetStateAction<string>) => void;
 }
 
-function Header({searchInputHandler}: HeaderProps) {
+function Header({setSearchInput}: HeaderProps) {
+
+    const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.toLowerCase();
+        setSearchInput(value);
+    };
+
     return (
         <header className={styles.header} >
             <form className={styles.searchForm} >
@@ -18,7 +24,7 @@ function Header({searchInputHandler}: HeaderProps) {
                     </svg >
                 </button >
                 <input className={styles.searchInput} placeholder="Search products" type="search"
-                       onChange={searchInputHandler} />
+                       onChange={onSearchInputChange} />
             </form >
             <nav >
                 <a href="#" ><img alt="Cart" src="/src/icons/shopping_cart.svg" /></a >

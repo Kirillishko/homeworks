@@ -1,3 +1,5 @@
+import IProduct from "IProduct";
+
 const convertCurrencyToSign = (currency: string) => {
     switch (currency) {
         case "USD":
@@ -7,4 +9,9 @@ const convertCurrencyToSign = (currency: string) => {
     }
 };
 
-export {convertCurrencyToSign};
+const getFilterProducts = (products: IProduct[], inputSearch: string) => {
+    const filter = inputSearch.toLowerCase();
+    return products.filter(product => product.name.toLowerCase().includes(filter));
+};
+
+export {convertCurrencyToSign, getFilterProducts};
