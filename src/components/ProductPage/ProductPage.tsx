@@ -1,23 +1,20 @@
-import React, {useEffect, useState} from "react";
-import IProduct from "IProduct";
+import React from "react";
 import {useParams} from "react-router-dom";
 import {getItem} from "../../api/api";
 import Product from "../Product/Product";
 import Loader from "../Loader/Loader";
+import useApi from "../../hooks/useApi";
 
 const ProductPage = () => {
-    const [product, setProduct] = useState<IProduct>();
     const {id} = useParams<{ id?: string }>();
 
-    useEffect(() => {
-        getItem(id!.toString()).then(product => setProduct(product));
-    }, []);
+    const [isLoading, product] = useApi(() => getItem(id!.toString()), null);
 
     return (
-        product ? (
-            <Product product={product} />
-        ) : (
+        isLoading ? (
             <Loader />
+        ) : (
+            <Product product={product!} />
         )
     );
 };
