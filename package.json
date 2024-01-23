@@ -4,14 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "dev": "cross-env NODE_ENV=dev webpack --mode development",
-    "start": "cross-env NODE_ENV=dev webpack server --mode development --open",
-    "Rstart": "react-scripts start",
-    "Rbuild": "react-scripts build",
-    "Rtest": "react-scripts test",
-    "Reject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
