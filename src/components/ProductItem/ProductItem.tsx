@@ -4,8 +4,8 @@ import { convertCurrencyToSign } from "../../helpers";
 import { getImagePath } from "../../api/api";
 import styles from "./productItem.module.css";
 import { Link } from "react-router-dom";
-import { ReactComponent as FavoriteIcon } from "../../icons/favorite.svg";
-import { ReactComponent as FavoriteActiveIcon } from "../../icons/favorite_active.svg";
+import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
+import { ReactComponent as FavoriteActiveIconComponent } from "../../icons/favorite_active.svg";
 
 interface ProductProps {
     product: IProduct;
@@ -21,8 +21,8 @@ const ProductItem: React.FC<ProductProps> = ({product}) => {
         <figure className={styles.card} >
             <label className={styles.favorite} >
                 <input type="checkbox" checked={likeCheck} onChange={() => setLikeCheck(prevState => !prevState)} />
-                <FavoriteIcon className={styles.favoriteIcon} />
-                <FavoriteActiveIcon className={styles.favoriteActiveIcon} />
+                <FavoriteIconComponent className={styles.favoriteIcon} />
+                <FavoriteActiveIconComponent className={styles.favoriteActiveIcon} />
             </label >
             <Link to={`products/${id}`} ><img alt={picture.alt} src={getImagePath(picture.path)} /></Link >
             <figcaption className={styles.info} >

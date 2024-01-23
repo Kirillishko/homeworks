@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../api/api";
-import Product from "../Product/Product";
-import Loader from "../Loader/Loader";
+import Product from "../../components/Product/Product";
+import Loader from "../../components/Loader/Loader";
 import useDataLoader from "../../hooks/useDataLoader";
-import ErrorModal from "../Modal/ErrorModal";
+import ErrorModal from "../../components/Modal/ErrorModal";
 
 const ProductPage: React.FC = () => {
     const {id} = useParams();
@@ -15,11 +15,15 @@ const ProductPage: React.FC = () => {
         return <ErrorModal title={"Ошибка"} description={error} />;
     }
 
+    if (isLoading) {
+        return <Loader />;
+    }
+
     return (
-        isLoading ? (
-            <Loader />
+        data ? (
+            <Product product={data} />
         ) : (
-            <Product product={data!} />
+            <ErrorModal title={"Ошибка"} description={"Нет данных!"} />
         )
     );
 };

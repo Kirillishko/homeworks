@@ -1,4 +1,4 @@
-import {useCallback, useRef} from "react";
+import { useCallback, useRef } from "react";
 
 const useDebouncedCallback = (callback: (...args: any) => void, delay: number) => {
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -13,5 +13,3 @@ const useDebouncedCallback = (callback: (...args: any) => void, delay: number) =
         }, delay);
     }, [callback, delay]);
 };
-
-export default useDebouncedCallback;
