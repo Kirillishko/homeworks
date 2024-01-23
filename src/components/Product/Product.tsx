@@ -1,6 +1,6 @@
-import React, {ChangeEvent, useState} from "react";
-import {convertCurrencyToSign} from "../../helpers";
-import {getImagePath} from "../../api/api";
+import React, { ChangeEvent, useState } from "react";
+import { convertCurrencyToSign } from "../../helpers";
+import { getImagePath } from "../../api/api";
 import IProduct from "IProduct";
 import styles from "./product.module.css";
 
@@ -8,8 +8,8 @@ interface ProductProps {
     product: IProduct,
 }
 
-const Product = ({product}: ProductProps) => {
-    const minCounterValue = 1;
+const MIN_COUNTER_VALUE = 1;
+const Product: React.FC<ProductProps> = ({product}) => {
     const {name, details, description, info, picture, price, like} = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
 
@@ -17,7 +17,7 @@ const Product = ({product}: ProductProps) => {
     const [likeCheck, setLikeCheck] = useState(like);
 
     const onDecrementProductCountClick = () => {
-        if (productCount > minCounterValue) {
+        if (productCount > MIN_COUNTER_VALUE) {
             setProductCount(prevState => prevState - 1);
         }
     };
@@ -28,7 +28,7 @@ const Product = ({product}: ProductProps) => {
 
     const onCounterChange = (e: ChangeEvent<HTMLInputElement>) => {
         const counterValue = Math.floor(+e.target.value);
-        setProductCount(counterValue < minCounterValue ? minCounterValue : counterValue);
+        setProductCount(Math.max(counterValue, MIN_COUNTER_VALUE));
     };
 
     return (

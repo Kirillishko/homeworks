@@ -1,20 +1,25 @@
 import React from "react";
-import {useParams} from "react-router-dom";
-import {getItem} from "../../api/api";
+import { useParams } from "react-router-dom";
+import { getItem } from "../../api/api";
 import Product from "../Product/Product";
 import Loader from "../Loader/Loader";
-import useApi from "../../hooks/useApi";
+import useDataLoader from "../../hooks/useDataLoader";
+import ErrorModal from "../Modal/ErrorModal";
 
-const ProductPage = () => {
-    const {id} = useParams<{ id?: string }>();
+const ProductPage: React.FC = () => {
+    const {id} = useParams();
 
-    const [isLoading, product] = useApi(() => getItem(id!.toString()), null);
+    const {isLoading, error, data} = useDataLoader(() => getItem(id!), null);
+
+    if (error) {
+        return <ErrorModal title={"Ошибка"} description={error} />;
+    }
 
     return (
         isLoading ? (
             <Loader />
         ) : (
-            <Product product={product!} />
+            <Product product={data!} />
         )
     );
 };

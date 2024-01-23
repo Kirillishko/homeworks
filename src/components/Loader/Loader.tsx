@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./loader.module.css";
 
-const Loader = () => {
+const Loader: React.FC = () => {
     return (
         <div className={styles.wrapper} >
-            <span className={styles.loader} ></span >
+            <span className={styles.loader} />
         </div >
     );
 };

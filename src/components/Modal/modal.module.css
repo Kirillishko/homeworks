@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.1s ease-out;
+    transition: opacity 0.2s ease-out;
     opacity: 0;
 }
 
@@ -15,7 +15,7 @@
     opacity: 1;
 }
 
-.modalContent.active {
+.modalContent {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -31,14 +31,13 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
     padding: 5px;
+    text-align: center;
+    scale: 0;
+    transition: scale 0.4s ease-out;
 }
 
-.modalContent h2 {
-    font-size: 20px;
-}
-
-.modalContent h3 {
-    font-size: 16px;
+.modalContent.active {
+    scale: 1;
 }
 
 .modalContent input {

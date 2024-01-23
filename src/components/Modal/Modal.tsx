@@ -1,21 +1,28 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import styles from "./modal.module.css";
 
 interface ModalProps {
-    active: boolean,
-    setActive: Dispatch<SetStateAction<boolean>>,
-    children?: any
+    children?: ReactNode;
 }
 
-const Modal = ({active, setActive, children}: ModalProps) => {
+const Modal: React.FC<ModalProps> = ({children}) => {
+    const [active, setActive] = useState<boolean>(false);
+
     const modalClass = active ? `${styles.modal} ${styles.active}` : styles.modal;
     const modalContentClass = active ? `${styles.modalContent} ${styles.active}` : styles.modalContent;
+
+    useEffect(() => {
+        setTimeout(() =>
+            setActive(true), 0);
+    }, []);
+
+    const onClose = () => setActive(prevState => !prevState);
 
     return (
         <div className={modalClass} >
             <div className={modalContentClass} >
                 {children}
-                <input type="button" value="Закрыть" onClick={() => setActive(prevState => !prevState)} />
+                <input type="button" value="Закрыть" onClick={onClose} />
             </div >
         </div >
     );

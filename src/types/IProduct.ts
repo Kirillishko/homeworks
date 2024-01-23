@@ -2,8 +2,6 @@ interface IProduct {
     id: string,
     name: string,
     description: string,
-    info?: string,
-    details?: string,
     like: boolean,
     picture: {
         path: string,
@@ -13,6 +11,8 @@ interface IProduct {
         value: number,
         currency: string
     }
+    info?: string,
+    details?: string,
 }
 
 export default IProduct;

@@ -10,8 +10,7 @@ const convertCurrencyToSign = (currency: string) => {
 };
 
 const getFilteredProducts = (products: IProduct[], inputSearch: string) => {
-    const filter = inputSearch.toLowerCase();
-    return products.filter(product => product.name.toLowerCase().includes(filter));
+    return products.filter(product => product.name.toLowerCase().includes(inputSearch));
 };
 
 export {convertCurrencyToSign, getFilteredProducts};

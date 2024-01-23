@@ -4,8 +4,9 @@ const useDebouncedCallback = (callback: (...args: any) => void, delay: number) =
     const timer = useRef<NodeJS.Timeout | null>(null);
 
     return useCallback((...args: string[]) => {
-        if (timer.current)
+        if (timer.current) {
             clearTimeout(timer.current);
+        }
 
         timer.current = setTimeout(() => {
             callback(...args);
