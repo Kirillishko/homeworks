@@ -1,28 +1,35 @@
 import { useEffect, useState } from "react";
+import IProduct from "IProduct";
+import { getItem, getItems } from "../api/api";
 
-const useDataLoader = <T>(fetch: () => Promise<T>, initialState: T): {
+const useDataLoader = (id?: string | null): {
     isLoading: boolean,
-    error: string,
-    data: T
+    error: string | null,
+    data: IProduct | IProduct[] | null;
 } => {
-
-    console.log("useDataLoader");
-
-    const [data, setData] = useState<T>(initialState);
+    const [data, setData] = useState<IProduct | IProduct[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string>("");
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch()
-            .then(data => {
-                setData(data);
+        const loadData = () => {
+            setIsLoading(true);
+            const fetch = id ? () => getItem(id) : getItems;
+            fetch()
+                .then(data => {
+                    setData(data);
+                })
+                .catch(error => {
+                    setError(error.message);
+                }).finally(() => {
                 setIsLoading(false);
-            })
-            .catch(error => {
-                setError(error);
             });
-    }, []);
+        };
+
+        if (id !== null) {
+            loadData();
+        }
+    }, [id]);
 
     return {isLoading, error, data};
 };

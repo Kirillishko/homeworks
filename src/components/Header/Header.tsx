@@ -5,13 +5,15 @@ import ShoppingCartIcon from "../../icons/shopping_cart.svg";
 import AccountIcon from "../../icons/account_circle.svg";
 
 interface HeaderProps {
-    setSearchInput: (value: React.SetStateAction<string>) => void;
+    setSearchInput?: (value: React.SetStateAction<string>) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({setSearchInput}) => {
 
     const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log("onSearchInputChange");
+        if (!setSearchInput)
+            return;
+
         const value = e.target.value.toLowerCase().trim();
         setSearchInput(value);
     };

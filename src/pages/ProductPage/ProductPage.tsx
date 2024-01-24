@@ -1,15 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getItem } from "../../api/api";
 import Product from "../../components/Product/Product";
 import Loader from "../../components/Loader/Loader";
 import useDataLoader from "../../hooks/useDataLoader";
 import ErrorModal from "../../components/Modal/ErrorModal";
+import Header from "../../components/Header/Header";
 
 const ProductPage: React.FC = () => {
     const {id} = useParams();
 
-    const {isLoading, error, data} = useDataLoader(() => getItem(id!), null);
+    const {isLoading, error, data} = useDataLoader(id);
 
     if (error) {
         return <ErrorModal title={"Ошибка"} description={error} />;
@@ -19,12 +19,16 @@ const ProductPage: React.FC = () => {
         return <Loader />;
     }
 
-    return (
-        data ? (
+    return data && !Array.isArray(data) ? (
+        <>
+            <Header />
             <Product product={data} />
-        ) : (
-            <ErrorModal title={"Ошибка"} description={"Нет данных!"} />
-        )
+        </>
+    ) : (
+        <>
+            <Header />
+            <div >К сожалению, товар не найден</div >
+        </>
     );
 };
 
