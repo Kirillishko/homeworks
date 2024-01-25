@@ -29,19 +29,6 @@ const ProductPage: React.FC = () => {
             )}
         </>
     );
-
-    //
-    // return data && !Array.isArray(data) ? (
-    //     <>
-    //         <Header />
-    //         <Product product={data} />
-    //     </>
-    // ) : (
-    //     <>
-    //         <Header />
-    //         <div >К сожалению, товар не найден</div >
-    //     </>
-    // );
 };
 
 export default ProductPage;

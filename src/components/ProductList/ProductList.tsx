@@ -1,5 +1,3 @@
-// noinspection ConstantOnRightSideOfComparisonJS
-
 import React from "react";
 import IProduct from "IProduct";
 import ProductItem from "../ProductItem/ProductItem";

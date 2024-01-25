@@ -40,18 +40,6 @@ const ProductListPage: React.FC = () => {
             )}
         </>
     );
-
-    // return filteredProducts && filteredProducts.length > 0 ? (
-    //     <>
-    //         <Header setSearchInput={setSearchInput} />
-    //         <ProductList products={filteredProducts} />
-    //     </>
-    // ) : (
-    //     <>
-    //         <Header setSearchInput={setSearchInput} />
-    //         <div >К сожалению, список пуст!</div >
-    //     </>
-    // );
 };
 
 
