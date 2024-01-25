@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import useDataLoader from "../../hooks/useDataLoader";
+import React, { useMemo, useState } from "react";
+import useData from "../../hooks/useData";
 import Loader from "../../components/Loader/Loader";
 import ErrorModal from "../../components/Modal/ErrorModal";
 import ProductList from "../../components/ProductList/ProductList";
-import { getFilteredProducts } from "../../helpers";
 import { useDebouncedValue } from "../../hooks/useDebouncedValue";
 import Header from "../../components/Header/Header";
-import IProduct from "IProduct";
+import { getFilteredProducts } from "../../helpers";
 
 const SEARCH_DELAY = 1000;
 const ProductListPage: React.FC = () => {
 
     const [searchInput, setSearchInput] = useState<string>("");
-    const [filteredProducts, setFilteredProducts] = useState<IProduct[]>();
-    const {isLoading, error, data} = useDataLoader();
-    const filter = useDebouncedValue(searchInput, SEARCH_DELAY);
+    const {isLoading, error, data} = useData(null);
+    const debouncedValue = useDebouncedValue(searchInput, SEARCH_DELAY);
 
-    useEffect(() => {
+    const filteredProducts = useMemo(() => {
         if (data && Array.isArray(data)) {
-            setFilteredProducts(getFilteredProducts(data, filter));
+            return getFilteredProducts(data, debouncedValue);
         }
-    }, [data, filter]);
+
+        return null;
+    }, [data, debouncedValue]);
 
     if (isLoading) {
         return <Loader />;
@@ -30,17 +30,28 @@ const ProductListPage: React.FC = () => {
         return <ErrorModal title={"Ошибка"} description={error} />;
     }
 
-    return filteredProducts && filteredProducts.length > 0 ? (
+    return (
         <>
             <Header setSearchInput={setSearchInput} />
-            <ProductList products={filteredProducts} />
-        </>
-    ) : (
-        <>
-            <Header setSearchInput={setSearchInput} />
-            <div >К сожалению, список пуст!</div >
+            {filteredProducts && filteredProducts.length > 0 ? (
+                <ProductList products={filteredProducts} />
+            ) : (
+                <div >К сожалению, список пуст!</div >
+            )}
         </>
     );
+
+    // return filteredProducts && filteredProducts.length > 0 ? (
+    //     <>
+    //         <Header setSearchInput={setSearchInput} />
+    //         <ProductList products={filteredProducts} />
+    //     </>
+    // ) : (
+    //     <>
+    //         <Header setSearchInput={setSearchInput} />
+    //         <div >К сожалению, список пуст!</div >
+    //     </>
+    // );
 };
 
 

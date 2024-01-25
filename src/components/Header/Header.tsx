@@ -11,8 +11,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({setSearchInput}) => {
 
     const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!setSearchInput)
+        if (!setSearchInput) {
             return;
+        }
 
         const value = e.target.value.toLowerCase().trim();
         setSearchInput(value);

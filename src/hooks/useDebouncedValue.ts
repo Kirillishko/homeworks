@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Primitives } from "Primitives";
 
-export const useDebouncedValue = <T extends Primitives>(value: T, delay: number): T => {
-    const [debouncedValue, setDebouncedValue] = useState<T>(value);
+export const useDebouncedValue = (value: string, delay: number): string => {
+    const [debouncedValue, setDebouncedValue] = useState<string>(value);
 
     useEffect(() => {
         const handler = setTimeout(() => {

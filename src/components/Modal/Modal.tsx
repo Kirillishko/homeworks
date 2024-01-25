@@ -18,15 +18,14 @@ const Modal: React.FC<ModalProps> = ({children}) => {
     }, []);
 
     useEffect(() => {
-        if (modalRootElement)
-            modalRootElement.appendChild(element);
+
+        modalRootElement?.appendChild(element);
 
         setTimeout(() =>
             setActive(true), 0);
 
         return () => {
-            if (modalRootElement)
-                modalRootElement.removeChild(element);
+            modalRootElement?.removeChild(element);
         };
     }, [element]);
 

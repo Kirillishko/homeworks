@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import IProduct from "IProduct";
 import { getItem, getItems } from "../api/api";
 
-const useDataLoader = (id?: string | null): {
+const useData = (id?: string | null): {
     isLoading: boolean,
     error: string | null,
     data: IProduct | IProduct[] | null;
@@ -12,7 +12,7 @@ const useDataLoader = (id?: string | null): {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const loadData = () => {
+        if (id !== undefined) {
             setIsLoading(true);
             const fetch = id ? () => getItem(id) : getItems;
             fetch()
@@ -24,14 +24,10 @@ const useDataLoader = (id?: string | null): {
                 }).finally(() => {
                 setIsLoading(false);
             });
-        };
-
-        if (id !== null) {
-            loadData();
         }
     }, [id]);
 
     return {isLoading, error, data};
 };
 
-export default useDataLoader;
+export default useData;
