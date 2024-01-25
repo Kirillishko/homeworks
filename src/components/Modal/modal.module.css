@@ -9,9 +9,11 @@
     align-items: center;
     transition: opacity 0.2s ease-out;
     opacity: 0;
+    pointer-events: none;
 }
 
 .modal.active {
+    pointer-events: all;
     opacity: 1;
 }
 

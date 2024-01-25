@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import IProduct from "IProduct";
-import { getItem, getItems } from "../api/api";
 
-const useData = (id?: string | null): {
+const useData = (fetch?: (() => Promise<IProduct | IProduct[]>) | null): {
     isLoading: boolean,
     error: string | null,
     data: IProduct | IProduct[] | null;
@@ -10,23 +9,18 @@ const useData = (id?: string | null): {
     const [data, setData] = useState<IProduct | IProduct[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-
     useEffect(() => {
-        if (id !== undefined) {
+        if (fetch) {
             setIsLoading(true);
-            const fetch = id ? () => getItem(id) : getItems;
-            fetch()
-                .then(data => {
-                    setData(data);
-                })
-                .catch(error => {
-                    setError(error.message);
-                }).finally(() => {
+            fetch().then((data: IProduct | IProduct[]) => {
+                setData(data);
+            }).catch((error: Error) => {
+                setError(error.message);
+            }).finally(() => {
                 setIsLoading(false);
             });
         }
-    }, [id]);
-
+    }, [fetch]);
     return {isLoading, error, data};
 };
 

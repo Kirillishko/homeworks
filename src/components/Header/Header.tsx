@@ -3,6 +3,8 @@ import styles from "./header.module.css";
 import { ReactComponent as SearchIconComponent } from "../../icons/search.svg";
 import ShoppingCartIcon from "../../icons/shopping_cart.svg";
 import AccountIcon from "../../icons/account_circle.svg";
+import HomeIcon from "../../icons/home1.svg";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
     setSearchInput?: (value: React.SetStateAction<string>) => void;
@@ -31,6 +33,7 @@ const Header: React.FC<HeaderProps> = ({setSearchInput}) => {
             <nav >
                 <a href="#" ><img alt="Cart" src={ShoppingCartIcon} /></a >
                 <a href="#" ><img alt="Account" src={AccountIcon} /></a >
+                <Link to={"/"} ><img alt="Account" src={HomeIcon} width={"24px"} height={"24px"} /></Link >
             </nav >
         </header >
     );
