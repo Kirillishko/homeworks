@@ -8,28 +8,30 @@ import { getErrorMessage, getFilteredProducts } from "../../helpers";
 import NotFound from "../../components/NotFound/NotFound";
 import { useFetchAllProductsQuery } from "../../services/ProductService";
 import { useAppSelector } from "../../hooks/redux";
+import * as headerSearchInputSelectors from "../../store/selectors/HeaderSearchInputSelectors";
 
 const SEARCH_DELAY = 1000;
 const ProductListPage: React.FC = () => {
     const { isLoading, error, data } = useFetchAllProductsQuery(null);
-    const { searchInput } = useAppSelector(state => state.headerSearchInputSlice);
+    const searchInput = useAppSelector(headerSearchInputSelectors.searchInput);
     const debouncedValue = useDebouncedValue(searchInput, SEARCH_DELAY);
 
     const filteredProducts = useMemo(() => {
-        if (data && Array.isArray(data)) {
+        if (data) {
             return getFilteredProducts(data, debouncedValue);
         }
 
-        return null;
+        return [];
     }, [data, debouncedValue]);
+
 
     return (
         <>
             <Header />
             {isLoading && <Loader />}
             {error && <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />}
-            {filteredProducts && filteredProducts.length > 0 && <ProductList products={filteredProducts} />}
-            {(!filteredProducts || filteredProducts.length === 0) && !isLoading &&
+            {filteredProducts.length > 0 && <ProductList products={filteredProducts} />}
+            {filteredProducts.length === 0 && !isLoading &&
                 <NotFound text={"К сожалению, список пуст!"} />}
         </>
     );

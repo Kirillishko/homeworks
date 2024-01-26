@@ -8,11 +8,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux";
 import { headerSearchInputSlice } from "../../store/reducers/HeaderSearchInputSlice";
 
-interface HeaderProps {
-    setSearchInput?: (value: React.SetStateAction<string>) => void;
-}
-
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC = () => {
     const { updateValue } = headerSearchInputSlice.actions;
     const dispatch = useAppDispatch();
 

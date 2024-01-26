@@ -18,8 +18,8 @@ export const productService = createApi({
             query: (id: string) => ({
                 url: `/item/${id}`,
             }),
-            transformResponse: (rawResult: { content: IProduct }) => {
-                return rawResult.content;
+            transformResponse: (response: { content: IProduct }) => {
+                return response.content;
             },
         }),
     })

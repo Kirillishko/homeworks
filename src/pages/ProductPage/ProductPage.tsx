@@ -9,15 +9,15 @@ import { useFetchProductByIdQuery } from "../../services/ProductService";
 import { getErrorMessage } from "../../helpers";
 
 const ProductPage: React.FC = () => {
-    const {id} = useParams();
-    const {isLoading, error, data} = useFetchProductByIdQuery(id!, {skip: !id});
+    const { id } = useParams();
+    const { isLoading, error, data } = useFetchProductByIdQuery(id!, { skip: !id });
 
     return (
         <>
             <Header />
             {isLoading && <Loader />}
             {error && <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />}
-            {data && !Array.isArray(data) && <Product product={data} />}
+            {data && <Product product={data} />}
             {!data && !isLoading && <NotFound text={"К сожалению, товар не найден!"} />}
         </>
     );
