@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { convertCurrencyToSign } from "../../helpers";
-import { getImagePath } from "../../api/api";
+import { convertCurrencyToSign, getImagePath } from "../../helpers";
 import IProduct from "IProduct";
 import styles from "./product.module.css";
 import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
@@ -11,8 +10,8 @@ interface ProductProps {
 }
 
 const MIN_COUNTER_VALUE = 1;
-const Product: React.FC<ProductProps> = ({product}) => {
-    const {name, details, description, info, picture, price, like} = product;
+const Product: React.FC<ProductProps> = ({ product }) => {
+    const { name, details, description, info, picture, price, like } = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
 
     const [productCount, setProductCount] = useState(MIN_COUNTER_VALUE);

@@ -1,29 +1,31 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
 import Loader from "../../components/Loader/Loader";
-import useData from "../../hooks/useData";
-import ErrorModal from "../../components/Modal/ErrorModal";
 import Header from "../../components/Header/Header";
-import { getItem } from "../../api/api";
 import NotFound from "../../components/NotFound/NotFound";
+import { useFetchProductByIdQuery } from "../../services/ProductService";
 
 const ProductPage: React.FC = () => {
-    const {id} = useParams();
+    const { id } = useParams();
+    const { isLoading, error, data } = useFetchProductByIdQuery(id!, { skip: !id });
 
-    const getById = useCallback(() => {
-        return getItem(id!);
-    }, [id]);
+    const renderContent = () => {
+        if (isLoading) {
+            return <Loader />;
+        }
 
-    const {isLoading, error, data} = useData(id ? getById : null);
+        if (data) {
+            return <Product product={data} />;
+        }
+
+        return <NotFound text={"К сожалению, товар не найден!"} />;
+    };
 
     return (
         <>
             <Header />
-            {isLoading && <Loader />}
-            {error && <ErrorModal title={"Ошибка"} description={error} />}
-            {data && !Array.isArray(data) && <Product product={data} />}
-            {!data && !isLoading && <NotFound text={"К сожалению, товар не найден!"} />}
+            {renderContent()}
         </>
     );
 };

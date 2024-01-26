@@ -1,6 +1,7 @@
 import IProduct from "IProduct";
+import { apiPass } from "./api";
 
-const convertCurrencyToSign = (currency: string) => {
+export const convertCurrencyToSign = (currency: string) => {
     switch (currency) {
         case "USD":
             return "$";
@@ -9,8 +10,8 @@ const convertCurrencyToSign = (currency: string) => {
     }
 };
 
-const getFilteredProducts = (products: IProduct[], inputSearch: string) => {
+export const getFilteredProducts = (products: IProduct[], inputSearch: string) => {
     return products.filter(product => product.name.toLowerCase().includes(inputSearch));
 };
 
-export {convertCurrencyToSign, getFilteredProducts};
+export const getImagePath = (url: string) => apiPass + url;
