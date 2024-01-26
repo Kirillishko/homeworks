@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import IProduct from "IProduct";
-import { apiPass } from "../api";
+import { baseQueryWithErrorProcessing } from "./Query";
 
 export const productService = createApi({
     reducerPath: "productService",
-    baseQuery: fetchBaseQuery({ baseUrl: apiPass }),
+    baseQuery: baseQueryWithErrorProcessing,
     endpoints: (build) => ({
         fetchAllProducts: build.query<IProduct[], void>({
             query: () => ({

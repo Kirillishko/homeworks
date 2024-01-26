@@ -2,28 +2,30 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Product from "../../components/Product/Product";
 import Loader from "../../components/Loader/Loader";
-import ErrorModal from "../../components/Modal/ErrorModal";
 import Header from "../../components/Header/Header";
 import NotFound from "../../components/NotFound/NotFound";
 import { useFetchProductByIdQuery } from "../../services/ProductService";
-import { getErrorMessage } from "../../helpers";
 
 const ProductPage: React.FC = () => {
     const { id } = useParams();
     const { isLoading, error, data } = useFetchProductByIdQuery(id!, { skip: !id });
 
+    const renderContent = () => {
+        if (isLoading) {
+            return <Loader />;
+        }
+
+        if (data) {
+            return <Product product={data} />;
+        }
+
+        return <NotFound text={"К сожалению, товар не найден!"} />;
+    };
+
     return (
         <>
             <Header />
-            {isLoading ? (
-                <Loader />
-            ) : error ? (
-                <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />
-            ) : data ? (
-                <Product product={data} />
-            ) : (
-                <NotFound text={"К сожалению, товар не найден!"} />
-            )}
+            {renderContent()}
         </>
     );
 };
