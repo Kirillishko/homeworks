@@ -15,12 +15,27 @@ const ProductPage: React.FC = () => {
     return (
         <>
             <Header />
-            {isLoading && <Loader />}
-            {error && <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />}
-            {data && <Product product={data} />}
-            {!data && !isLoading && <NotFound text={"К сожалению, товар не найден!"} />}
+            {isLoading ? (
+                <Loader />
+            ) : error ? (
+                <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />
+            ) : data ? (
+                <Product product={data} />
+            ) : (
+                <NotFound text={"К сожалению, товар не найден!"} />
+            )}
         </>
     );
+
+    // return (
+    //     <>
+    //         <Header />
+    //         {isLoading && <Loader />}
+    //         {error && <ErrorModal title={"Ошибка"} description={getErrorMessage(error)} />}
+    //         {data && <Product product={data} />}
+    //         {!data && !isLoading && <NotFound text={"К сожалению, товар не найден!"} />}
+    //     </>
+    // );
 };
 
 export default ProductPage;

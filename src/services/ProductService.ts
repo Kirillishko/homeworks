@@ -6,7 +6,7 @@ export const productService = createApi({
     reducerPath: "productService",
     baseQuery: fetchBaseQuery({ baseUrl: apiPass }),
     endpoints: (build) => ({
-        fetchAllProducts: build.query<IProduct[], null>({
+        fetchAllProducts: build.query<IProduct[], void>({
             query: () => ({
                 url: "/item",
             }),
