@@ -5,20 +5,20 @@ import ShoppingCartIcon from "../../icons/shopping_cart.svg";
 import AccountIcon from "../../icons/account_circle.svg";
 import HomeIcon from "../../icons/home1.svg";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/redux";
+import { headerSearchInputSlice } from "../../store/reducers/HeaderSearchInputSlice";
 
 interface HeaderProps {
     setSearchInput?: (value: React.SetStateAction<string>) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({setSearchInput}) => {
+const Header: React.FC<HeaderProps> = () => {
+    const { updateValue } = headerSearchInputSlice.actions;
+    const dispatch = useAppDispatch();
 
     const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!setSearchInput) {
-            return;
-        }
-
         const value = e.target.value.toLowerCase().trim();
-        setSearchInput(value);
+        dispatch(updateValue(value));
     };
 
     return (

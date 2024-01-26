@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import IProduct from "IProduct";
-import { convertCurrencyToSign } from "../../helpers";
-import { getImagePath } from "../../api/api";
+import { convertCurrencyToSign, getImagePath } from "../../helpers";
 import styles from "./productItem.module.css";
 import { Link } from "react-router-dom";
 import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
@@ -11,8 +10,8 @@ interface ProductProps {
     product: IProduct;
 }
 
-const ProductItem: React.FC<ProductProps> = ({product}) => {
-    const {id, like, picture, name, price} = product;
+const ProductItem: React.FC<ProductProps> = ({ product }) => {
+    const { id, like, picture, name, price } = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
 
     const [likeCheck, setLikeCheck] = useState(like);
