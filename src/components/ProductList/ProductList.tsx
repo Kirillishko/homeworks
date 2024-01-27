@@ -9,7 +9,7 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
-    
+
     return (
         products.length > 0 ? (
             <div className={styles.container} >

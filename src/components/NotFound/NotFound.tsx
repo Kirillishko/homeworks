@@ -5,7 +5,7 @@ interface NotFoundProps {
     text: string;
 }
 
-const NotFound = ({text}: NotFoundProps) => {
+const NotFound = ({ text }: NotFoundProps) => {
     return (
         <div className={styles.content} >
             <h2 >{text}</h2 >

@@ -7,6 +7,7 @@ import HomeIcon from "../../icons/home1.svg";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux";
 import { headerSearchInputSlice } from "../../store/reducers/HeaderSearchInputSlice";
+import { FormControl, Input, InputAdornment } from "@mui/material";
 
 const Header: React.FC = () => {
     const { updateValue } = headerSearchInputSlice.actions;
@@ -19,13 +20,17 @@ const Header: React.FC = () => {
 
     return (
         <header className={styles.header} >
-            <form className={styles.searchForm} >
-                <button className={styles.searchButton} >
-                    <SearchIconComponent />
-                </button >
-                <input className={styles.searchInput} placeholder="Search products" type="search"
-                       onChange={onSearchInputChange} />
-            </form >
+            <FormControl variant="standard" >
+                <Input
+                    id="input-with-icon-adornment"
+                    startAdornment={
+                        <InputAdornment position="start" sx={{ fillRule: "#369" }} >
+                            <SearchIconComponent style={{ fill: "#000", }} />
+                        </InputAdornment >
+                    }
+                    onChange={onSearchInputChange}
+                />
+            </FormControl >
             <nav >
                 <a href="#" ><img alt="Cart" src={ShoppingCartIcon} /></a >
                 <a href="#" ><img alt="Account" src={AccountIcon} /></a >

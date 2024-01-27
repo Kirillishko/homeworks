@@ -4,6 +4,7 @@ import IProduct from "IProduct";
 import styles from "./product.module.css";
 import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
 import { ReactComponent as FavoriteActiveIconComponent } from "../../icons/favorite_active.svg";
+import { Button } from "@mui/material";
 
 interface ProductProps {
     product: IProduct,
@@ -54,7 +55,9 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                             <input type="number" value={productCount} onChange={onCounterChange} />
                             <input type="button" value="+" onClick={onIncrementProductCountClick} />
                         </form >
-                        <button className={styles.cartButton} >Add to cart</button >
+                        <Button variant="contained" sx={{
+                            borderRadius: "10px"
+                        }} color="primary" >Add to cart</Button >
                         <label className={styles.favorite} >
                             <input type="checkbox" checked={likeCheck}
                                    onChange={() => setLikeCheck(prevState => !prevState)} />
