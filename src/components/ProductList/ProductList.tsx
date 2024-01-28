@@ -1,24 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import IProduct from "IProduct";
 import ProductItem from "../ProductItem/ProductItem";
-import styles from "./productList.module.css";
+import styles from "./ProductList.module.css";
 import NotFound from "../NotFound/NotFound";
 
 interface ProductListProps {
     products: IProduct[],
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products }) => {
+const ProductList: FC<ProductListProps> = ({ products }) => {
 
     return (
         products.length > 0 ? (
-            <div className={styles.container} >
+            <div className={styles.container}>
                 {products.map(product =>
-                    <ProductItem key={product.id} product={product} />
+                    <ProductItem key={product.id} product={product}/>
                 )}
-            </div >
+            </div>
         ) : (
-            <NotFound text={"К сожалению, список пуст!"} />
+            <NotFound text={"К сожалению, список пуст!"}/>
         )
     );
 };

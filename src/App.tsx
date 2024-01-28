@@ -14,13 +14,13 @@ const App = () => {
 
     return (
         <>
-            <main >
-                {error ? <ErrorModal title={"Ошибка"} description={error} /> : <></>}
-                <Routes >
-                    <Route path="/" element={<ProductListPage />} />
-                    <Route path="products/:id" element={<ProductPage />} />
-                </Routes >
-            </main >
+            <main>
+                {error ? <ErrorModal title={"Ошибка"} description={error}/> : <></>}
+                <Routes>
+                    <Route path="/" element={<ProductListPage/>}/>
+                    <Route path="products/:id" element={<ProductPage/>}/>
+                </Routes>
+            </main>
         </>
     );
 };

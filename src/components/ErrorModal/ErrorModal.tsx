@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import React, { FC, useState } from "react";
+import { Box, Modal, Typography } from "@mui/material";
+import MyButton from "../UI Elements/MyButton/MyButton";
 
 const style = {
     position: "absolute",
@@ -22,7 +23,7 @@ interface ErrorModalProps {
     description: string
 }
 
-const ErrorModal: React.FC<ErrorModalProps> = ({ title, description }) => {
+const ErrorModal: FC<ErrorModalProps> = ({ title, description }) => {
     const [active, setActive] = useState<boolean>(true);
     const onClose = () => setActive(prevState => !prevState);
 
@@ -31,16 +32,16 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ title, description }) => {
             open={active}
             onClose={onClose}
         >
-            <Box sx={style} >
-                <Typography variant="h6" component="h2" >
+            <Box sx={style}>
+                <Typography variant="h6" component="h2">
                     {title}
-                </Typography >
-                <Typography variant="body1" component="h3" >
+                </Typography>
+                <Typography variant="body1" component="h3">
                     {description}
-                </Typography >
-                <Button variant="text" color={"primary"} onClick={onClose} >Закрыть</Button >
-            </Box >
-        </Modal >
+                </Typography>
+                <MyButton text={"Закрыть"} color={"secondary"} onClick={onClose}/>
+            </Box>
+        </Modal>
     );
 };
 

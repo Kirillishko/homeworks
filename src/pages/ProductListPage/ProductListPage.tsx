@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import Loader from "../../components/Loader/Loader";
 import ProductList from "../../components/ProductList/ProductList";
 import { useDebouncedValue } from "../../hooks/useDebouncedValue";
@@ -9,7 +9,7 @@ import { useAppSelector } from "../../hooks/redux";
 import * as headerSearchInputSelectors from "../../store/selectors/HeaderSearchInputSelectors";
 
 const SEARCH_DELAY = 1000;
-const ProductListPage: React.FC = () => {
+const ProductListPage: FC = () => {
     const { isLoading, data } = useFetchAllProductsQuery();
     const searchInput = useAppSelector(headerSearchInputSelectors.searchInput);
     const debouncedValue = useDebouncedValue(searchInput, SEARCH_DELAY);
@@ -24,15 +24,15 @@ const ProductListPage: React.FC = () => {
 
     const renderContent = () => {
         if (isLoading) {
-            return <Loader />;
+            return <Loader/>;
         }
 
-        return <ProductList products={filteredProducts} />;
+        return <ProductList products={filteredProducts}/>;
     };
 
     return (
         <>
-            <Header />
+            <Header/>
             {renderContent()}
         </>
     );

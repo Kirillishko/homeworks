@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 const store = setupStore();
 
 root.render(
-    <Provider store={store} >
-        <BrowserRouter >
-            <ThemeProvider theme={theme} >
-                <App />
-            </ThemeProvider >
-        </BrowserRouter >
-    </Provider >
+    <Provider store={store}>
+        <BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <App/>
+            </ThemeProvider>
+        </BrowserRouter>
+    </Provider>
 );
