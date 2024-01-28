@@ -34,38 +34,38 @@ const Product: FC<ProductProps> = ({ product }) => {
     };
 
     return (
-        <main className={styles.wrapper} >
-            <section className={styles.content} >
-                <div className={styles.image} >
-                    <img alt={picture.alt} src={getImagePath(picture.path)} />
-                </div >
-                <div className={styles.info} >
-                    <div className={styles.text} >
-                        <h2 >{name}</h2 >
-                        <p >{description}. {info}</p >
-                    </div >
-                    <div className={styles.text} >
-                        <h3 >Детали</h3 >
-                        <p >{details}</p >
-                    </div >
-                    <div className={styles.buttons} >
-                        <h1 >{priceWithSign}</h1 >
-                        <form className={styles.productCountForm} onSubmit={e => e.preventDefault()} >
-                            <input type="button" value="—" onClick={onDecrementProductCountClick} />
-                            <input type="number" value={productCount} onChange={onCounterChange} />
-                            <input type="button" value="+" onClick={onIncrementProductCountClick} />
-                        </form >
-                        <MyButton text={"Add to cart"} color={"primary"} />
-                        <label className={styles.favorite} >
+        <main className={styles.wrapper}>
+            <section className={styles.content}>
+                <div className={styles.image}>
+                    <img alt={picture.alt} src={getImagePath(picture.path)}/>
+                </div>
+                <div className={styles.info}>
+                    <div className={styles.text}>
+                        <h2>{name}</h2>
+                        <p>{description}. {info}</p>
+                    </div>
+                    <div className={styles.text}>
+                        <h3>Детали</h3>
+                        <p>{details}</p>
+                    </div>
+                    <div className={styles.buttons}>
+                        <h1>{priceWithSign}</h1>
+                        <form className={styles.productCountForm} onSubmit={e => e.preventDefault()}>
+                            <input type="button" value="—" onClick={onDecrementProductCountClick}/>
+                            <input type="number" value={productCount} onChange={onCounterChange}/>
+                            <input type="button" value="+" onClick={onIncrementProductCountClick}/>
+                        </form>
+                        <MyButton text={"Add to cart"} color={"primary"}/>
+                        <label className={styles.favorite}>
                             <input type="checkbox" checked={likeCheck}
-                                   onChange={() => setLikeCheck(prevState => !prevState)} />
-                            <FavoriteIconComponent className={styles.favoriteIcon} />
-                            <FavoriteActiveIconComponent className={styles.favoriteActiveIcon} />
-                        </label >
-                    </div >
-                </div >
-            </section >
-        </main >
+                                   onChange={() => setLikeCheck(prevState => !prevState)}/>
+                            <FavoriteIconComponent className={styles.favoriteIcon}/>
+                            <FavoriteActiveIconComponent className={styles.favoriteActiveIcon}/>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
 };
 
