@@ -1,12 +1,12 @@
-import IProduct from "IProduct";
-import { apiPass } from "../api/Query";
+import IProduct from 'IProduct';
+import { apiPass } from '../api/Query';
 
 export const convertCurrencyToSign = (currency: string) => {
     switch (currency) {
-        case "USD":
-            return "$";
+        case 'USD':
+            return '$';
         default:
-            return "not assigned";
+            return 'not assigned';
     }
 };
 

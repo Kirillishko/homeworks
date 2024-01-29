@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import IProduct from "IProduct";
-import ProductItem from "../ProductItem/ProductItem";
-import styles from "./ProductList.module.css";
-import NotFound from "../NotFound/NotFound";
+import React, { FC } from 'react';
+import IProduct from 'IProduct';
+import ProductItem from '../ProductItem/ProductItem';
+import styles from './ProductList.module.css';
+import NotFound from '../NotFound/NotFound';
 
 interface ProductListProps {
     products: IProduct[],
@@ -18,7 +18,7 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
                 )}
             </div>
         ) : (
-            <NotFound text={"К сожалению, список пуст!"}/>
+            <NotFound text={'К сожалению, список пуст!'}/>
         )
     );
 };

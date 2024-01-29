@@ -1,14 +1,14 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import IProduct from "IProduct";
-import { baseQueryWithErrorProcessing } from "./Query";
+import { createApi } from '@reduxjs/toolkit/query/react';
+import IProduct from 'IProduct';
+import { baseQueryWithErrorProcessing } from './Query';
 
 export const productService = createApi({
-    reducerPath: "productService",
+    reducerPath: 'productService',
     baseQuery: baseQueryWithErrorProcessing,
     endpoints: (build) => ({
         fetchAllProducts: build.query<IProduct[], void>({
             query: () => ({
-                url: "/item",
+                url: '/item',
             }),
             transformResponse: (response: { content: IProduct[] }) => {
                 return response.content;

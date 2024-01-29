@@ -1,21 +1,21 @@
-import React, { FC, useState } from "react";
-import { Box, Modal, Typography } from "@mui/material";
-import BaseButton, { Colors } from "../BaseButton/BaseButton";
+import React, { FC, useState } from 'react';
+import { Box, Modal, Typography } from '@mui/material';
+import BaseButton, { Colors } from '../BaseButton/BaseButton';
 
 const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     width: 400,
-    height: "20vh",
+    height: '20vh',
     boxShadow: 24,
     p: 2,
-    backgroundColor: "#fff",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between"
+    backgroundColor: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between'
 };
 
 interface ErrorModalProps {
@@ -39,7 +39,7 @@ const ErrorModal: FC<ErrorModalProps> = ({ title, description }) => {
                 <Typography variant="body1" component="h3">
                     {description}
                 </Typography>
-                <BaseButton text={"Закрыть"} color={Colors.Secondary} onClick={onClose}/>
+                <BaseButton text={'Закрыть'} color={Colors.Secondary} onClick={onClose}/>
             </Box>
         </Modal>
     );

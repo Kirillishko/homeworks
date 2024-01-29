@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import IProduct from "IProduct";
+import { useEffect, useState } from 'react';
+import IProduct from 'IProduct';
 
 const useData = (fetch?: (() => Promise<IProduct | IProduct[]>) | null): {
     isLoading: boolean,

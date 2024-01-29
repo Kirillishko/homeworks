@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { Button, SxProps, Theme } from "@mui/material";
+import React, { FC } from 'react';
+import { Button, SxProps, Theme } from '@mui/material';
 
 export const enum Colors {
-    Primary = "primary",
-    Secondary = "secondary"
+    Primary = 'primary',
+    Secondary = 'secondary'
 }
 
 const style: SxProps<Theme> = {
-    borderRadius: "10px"
+    borderRadius: '10px'
 };
 
 interface BaseButtonProps {
