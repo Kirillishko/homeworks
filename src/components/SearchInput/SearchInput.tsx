@@ -1,12 +1,12 @@
 import React, { ChangeEvent, FC } from "react";
-import { ReactComponent as SearchIconComponent } from "../../../icons/search.svg";
+import { ReactComponent as SearchIconComponent } from "../../assets/icons/search.svg";
 import { FormControl, Input, InputAdornment } from "@mui/material";
 
-interface MySearchInputProps {
+interface SearchInputProps {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
-const MySearchInput: FC<MySearchInputProps> = ({ onChange }) => {
+const SearchInput: FC<SearchInputProps> = ({ onChange }) => {
 
     return (
         <FormControl variant="standard" color={"primary"}>
@@ -24,4 +24,4 @@ const MySearchInput: FC<MySearchInputProps> = ({ onChange }) => {
 };
 
 
-export default MySearchInput;
+export default SearchInput;

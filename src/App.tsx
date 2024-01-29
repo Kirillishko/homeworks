@@ -1,7 +1,7 @@
 import React from "react";
-import "./styles/globals.css";
-import "./styles/reset.css";
-import "./styles/variables.css";
+import "./assets/styles/globals.css";
+import "./assets/styles/reset.css";
+import "./assets/styles/variables.css";
 import { Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";

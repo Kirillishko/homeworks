@@ -1,10 +1,10 @@
 import React, { ChangeEvent, FC, useState } from "react";
-import { convertCurrencyToSign, getImagePath } from "../../helpers";
+import { convertCurrencyToSign, getImagePath } from "../../helpers/helpers";
 import IProduct from "IProduct";
 import styles from "./Product.module.css";
-import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
-import { ReactComponent as FavoriteActiveIconComponent } from "../../icons/favorite_active.svg";
-import MyButton from "../UI Elements/MyButton/MyButton";
+import { ReactComponent as FavoriteIconComponent } from "../../assets/icons/favorite.svg";
+import { ReactComponent as FavoriteActiveIconComponent } from "../../assets/icons/favorite_active.svg";
+import BaseButton, { Colors } from "../BaseButton/BaseButton";
 
 interface ProductProps {
     product: IProduct,
@@ -55,7 +55,7 @@ const Product: FC<ProductProps> = ({ product }) => {
                             <input type="number" value={productCount} onChange={onCounterChange}/>
                             <input type="button" value="+" onClick={onIncrementProductCountClick}/>
                         </form>
-                        <MyButton text={"Add to cart"} color={"primary"}/>
+                        <BaseButton text={"Add to cart"} color={Colors.primary}/>
                         <label className={styles.favorite}>
                             <input type="checkbox" checked={likeCheck}
                                    onChange={() => setLikeCheck(prevState => !prevState)}/>

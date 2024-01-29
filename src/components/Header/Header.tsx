@@ -1,12 +1,12 @@
 import React, { ChangeEvent } from "react";
 import styles from "./Header.module.css";
-import ShoppingCartIcon from "../../icons/shopping_cart.svg";
-import AccountIcon from "../../icons/account_circle.svg";
-import HomeIcon from "../../icons/home1.svg";
+import ShoppingCartIcon from "../../assets/icons/shopping_cart.svg";
+import AccountIcon from "../../assets/icons/account_circle.svg";
+import HomeIcon from "../../assets/icons/home1.svg";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux";
 import { headerSearchInputSlice } from "../../store/reducers/HeaderSearchInputSlice";
-import MySearchInput from "../UI Elements/MySearchInput/MySearchInput";
+import SearchInput from "../SearchInput/SearchInput";
 
 const Header: React.FC = () => {
     const { updateValue } = headerSearchInputSlice.actions;
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 
     return (
         <header className={styles.header}>
-            <MySearchInput onChange={onSearchInputChange}/>
+            <SearchInput onChange={onSearchInputChange}/>
             <nav>
                 <a href="#"><img alt="Cart" src={ShoppingCartIcon}/></a>
                 <a href="#"><img alt="Account" src={AccountIcon}/></a>

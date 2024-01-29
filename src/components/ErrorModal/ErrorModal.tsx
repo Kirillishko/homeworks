@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Box, Modal, Typography } from "@mui/material";
-import MyButton from "../UI Elements/MyButton/MyButton";
+import BaseButton, { Colors } from "../BaseButton/BaseButton";
 
 const style = {
     position: "absolute",
@@ -39,7 +39,7 @@ const ErrorModal: FC<ErrorModalProps> = ({ title, description }) => {
                 <Typography variant="body1" component="h3">
                     {description}
                 </Typography>
-                <MyButton text={"Закрыть"} color={"secondary"} onClick={onClose}/>
+                <BaseButton text={"Закрыть"} color={Colors.secondary} onClick={onClose}/>
             </Box>
         </Modal>
     );

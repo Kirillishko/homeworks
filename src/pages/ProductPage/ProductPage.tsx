@@ -4,7 +4,7 @@ import Product from "../../components/Product/Product";
 import Loader from "../../components/Loader/Loader";
 import Header from "../../components/Header/Header";
 import NotFound from "../../components/NotFound/NotFound";
-import { useFetchProductByIdQuery } from "../../services/ProductService";
+import { useFetchProductByIdQuery } from "../../api/ProductService";
 
 const ProductPage: FC = () => {
     const { id } = useParams();

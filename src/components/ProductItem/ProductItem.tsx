@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import IProduct from "IProduct";
-import { convertCurrencyToSign, getImagePath } from "../../helpers";
+import { convertCurrencyToSign, getImagePath } from "../../helpers/helpers";
 import styles from "./ProductItem.module.css";
 import { Link } from "react-router-dom";
-import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
-import { ReactComponent as FavoriteActiveIconComponent } from "../../icons/favorite_active.svg";
+import { ReactComponent as FavoriteIconComponent } from "../../assets/icons/favorite.svg";
+import { ReactComponent as FavoriteActiveIconComponent } from "../../assets/icons/favorite_active.svg";
 
 interface ProductProps {
     product: IProduct;

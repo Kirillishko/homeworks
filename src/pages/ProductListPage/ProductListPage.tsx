@@ -3,8 +3,8 @@ import Loader from "../../components/Loader/Loader";
 import ProductList from "../../components/ProductList/ProductList";
 import { useDebouncedValue } from "../../hooks/useDebouncedValue";
 import Header from "../../components/Header/Header";
-import { getFilteredProducts } from "../../helpers";
-import { useFetchAllProductsQuery } from "../../services/ProductService";
+import { getFilteredProducts } from "../../helpers/helpers";
+import { useFetchAllProductsQuery } from "../../api/ProductService";
 import { useAppSelector } from "../../hooks/redux";
 import * as headerSearchInputSelectors from "../../store/selectors/HeaderSearchInputSelectors";
 

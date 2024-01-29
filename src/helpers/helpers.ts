@@ -1,5 +1,5 @@
 import IProduct from "IProduct";
-import { apiPass } from "./api";
+import { apiPass } from "../api/Query";
 
 export const convertCurrencyToSign = (currency: string) => {
     switch (currency) {

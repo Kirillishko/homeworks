@@ -1,8 +1,8 @@
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError, } from "@reduxjs/toolkit/query/react";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { apiPass } from "../api";
 import { errorSlice } from "../store/reducers/ErrorSlice";
 
+export const apiPass = "http://localhost:3006";
 const baseQuery = fetchBaseQuery({ baseUrl: apiPass });
 const { setValue } = errorSlice.actions;
 

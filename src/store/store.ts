@@ -1,5 +1,5 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import { productService } from "../services/ProductService";
+import { productService } from "../api/ProductService";
 import headerSearchInputSlice from "./reducers/HeaderSearchInputSlice";
 import errorSlice from "./reducers/ErrorSlice";
 

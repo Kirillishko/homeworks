@@ -1,17 +1,22 @@
 import React, { FC } from "react";
-import { Button, ButtonOwnProps, SxProps, Theme } from "@mui/material";
+import { Button, SxProps, Theme } from "@mui/material";
+
+export const enum Colors {
+    primary = "primary",
+    secondary = "secondary"
+}
 
 const style: SxProps<Theme> = {
     borderRadius: "10px"
 };
 
-interface MyButtonProps {
+interface BaseButtonProps {
     text: string,
-    color: ButtonOwnProps["color"],
+    color: Colors,
     onClick?: () => void
 }
 
-const MyButton: FC<MyButtonProps> = ({ text, color, onClick }) => {
+const BaseButton: FC<BaseButtonProps> = ({ text, color, onClick }) => {
 
     return (
         <Button variant="contained" color={color} onClick={onClick} sx={style}>
@@ -21,4 +26,4 @@ const MyButton: FC<MyButtonProps> = ({ text, color, onClick }) => {
 };
 
 
-export default MyButton;
+export default BaseButton;
