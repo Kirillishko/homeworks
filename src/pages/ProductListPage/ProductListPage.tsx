@@ -2,7 +2,6 @@ import React, { FC, useMemo } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ProductList from '../../components/ProductList/ProductList';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
-import Header from '../../components/Header/Header';
 import { getFilteredProducts } from '../../helpers/helpers';
 import { useFetchAllProductsQuery } from '../../api/ProductService';
 import { useAppSelector } from '../../hooks/redux';

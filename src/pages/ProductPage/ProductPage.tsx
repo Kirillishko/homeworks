@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import Product from '../../components/Product/Product';
 import Loader from '../../components/Loader/Loader';
-import Header from '../../components/Header/Header';
 import NotFound from '../../components/NotFound/NotFound';
 import { useFetchProductByIdQuery } from '../../api/ProductService';
 
