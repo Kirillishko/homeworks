@@ -1,7 +1,7 @@
-import { combineSlices, configureStore } from '@reduxjs/toolkit';
-import { productService } from '../api/ProductService';
-import headerSearchInputSlice from './reducers/HeaderSearchInputSlice';
-import errorSlice from './reducers/ErrorSlice';
+import { combineSlices, configureStore } from "@reduxjs/toolkit";
+import { productService } from "../api/ProductService";
+import headerSearchInputSlice from "./reducers/HeaderSearchInputSlice";
+import errorSlice from "./reducers/ErrorSlice";
 
 const rootReducer = combineSlices({
     errorSlice,
@@ -19,4 +19,4 @@ export const setupStore = () => {
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
-export type AppDispatch = AppStore['dispatch']
+export type AppDispatch = AppStore["dispatch"]

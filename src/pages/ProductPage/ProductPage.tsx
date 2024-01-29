@@ -24,7 +24,6 @@ const ProductPage: FC = () => {
 
     return (
         <>
-            <Header/>
             {renderContent()}
         </>
     );

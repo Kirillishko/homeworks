@@ -1,19 +1,18 @@
 import React from 'react';
-import './assets/styles/globals.css';
-import './assets/styles/reset.css';
-import './assets/styles/variables.css';
 import { Route, Routes } from 'react-router-dom';
-import ProductPage from './pages/ProductPage/ProductPage';
-import ProductListPage from './pages/ProductListPage/ProductListPage';
-import { useAppSelector } from './hooks/redux';
-import * as errorSelectors from './store/selectors/ErrorSelectors';
-import ErrorModal from './components/ErrorModal/ErrorModal';
+import ProductPage from '../pages/ProductPage/ProductPage';
+import ProductListPage from '../pages/ProductListPage/ProductListPage';
+import { useAppSelector } from '../hooks/redux';
+import * as errorSelectors from '../store/selectors/ErrorSelectors';
+import ErrorModal from './ErrorModal/ErrorModal';
+import Header from './Header/Header';
 
 const App = () => {
     const error = useAppSelector(errorSelectors.error);
 
     return (
         <>
+            <Header/>
             <main>
                 {error ? <ErrorModal title={'Ошибка'} description={error}/> : <></>}
                 <Routes>

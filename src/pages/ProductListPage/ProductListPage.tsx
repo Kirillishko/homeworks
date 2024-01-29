@@ -22,19 +22,12 @@ const ProductListPage: FC = () => {
         return [];
     }, [data, debouncedValue]);
 
-    const renderContent = () => {
-        if (isLoading) {
-            return <Loader/>;
-        }
-
-        return <ProductList products={filteredProducts}/>;
-    };
-
     return (
-        <>
-            <Header/>
-            {renderContent()}
-        </>
+        isLoading ? (
+            <Loader/>
+        ) : (
+            <ProductList products={filteredProducts}/>
+        )
     );
 };
 
