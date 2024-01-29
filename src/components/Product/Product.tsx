@@ -55,7 +55,7 @@ const Product: FC<ProductProps> = ({ product }) => {
                             <input type="number" value={productCount} onChange={onCounterChange}/>
                             <input type="button" value="+" onClick={onIncrementProductCountClick}/>
                         </form>
-                        <BaseButton text={"Add to cart"} color={Colors.primary}/>
+                        <BaseButton text={"Add to cart"} color={Colors.Primary}/>
                         <label className={styles.favorite}>
                             <input type="checkbox" checked={likeCheck}
                                    onChange={() => setLikeCheck(prevState => !prevState)}/>

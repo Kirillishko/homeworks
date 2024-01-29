@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { Button, SxProps, Theme } from "@mui/material";
 
 export const enum Colors {
-    primary = "primary",
-    secondary = "secondary"
+    Primary = "primary",
+    Secondary = "secondary"
 }
 
 const style: SxProps<Theme> = {

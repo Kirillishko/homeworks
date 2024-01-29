@@ -39,7 +39,7 @@ const ErrorModal: FC<ErrorModalProps> = ({ title, description }) => {
                 <Typography variant="body1" component="h3">
                     {description}
                 </Typography>
-                <BaseButton text={"Закрыть"} color={Colors.secondary} onClick={onClose}/>
+                <BaseButton text={"Закрыть"} color={Colors.Secondary} onClick={onClose}/>
             </Box>
         </Modal>
     );
