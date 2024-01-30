@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import IProduct from "IProduct";
+import { useEffect, useState } from 'react';
+import IProduct from 'IProduct';
 
 const useData = (fetch?: (() => Promise<IProduct | IProduct[]>) | null): {
     isLoading: boolean,
@@ -21,7 +21,7 @@ const useData = (fetch?: (() => Promise<IProduct | IProduct[]>) | null): {
             });
         }
     }, [fetch]);
-    return {isLoading, error, data};
+    return { isLoading, error, data };
 };
 
 export default useData;

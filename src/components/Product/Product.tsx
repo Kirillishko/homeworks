@@ -1,16 +1,17 @@
-import React, { ChangeEvent, useState } from "react";
-import { convertCurrencyToSign, getImagePath } from "../../helpers";
-import IProduct from "IProduct";
-import styles from "./product.module.css";
-import { ReactComponent as FavoriteIconComponent } from "../../icons/favorite.svg";
-import { ReactComponent as FavoriteActiveIconComponent } from "../../icons/favorite_active.svg";
+import React, { ChangeEvent, FC, useState } from 'react';
+import { convertCurrencyToSign, getImagePath } from '../../helpers/helpers';
+import IProduct from 'IProduct';
+import styles from './Product.module.css';
+import { ReactComponent as FavoriteIconComponent } from '../../assets/icons/favorite.svg';
+import { ReactComponent as FavoriteActiveIconComponent } from '../../assets/icons/favorite_active.svg';
+import BaseButton, { Colors } from '../BaseButton/BaseButton';
 
 interface ProductProps {
     product: IProduct,
 }
 
 const MIN_COUNTER_VALUE = 1;
-const Product: React.FC<ProductProps> = ({ product }) => {
+const Product: FC<ProductProps> = ({ product }) => {
     const { name, details, description, info, picture, price, like } = product;
     const priceWithSign = convertCurrencyToSign(price.currency) + price.value;
 
@@ -33,38 +34,38 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     };
 
     return (
-        <main className={styles.wrapper} >
-            <section className={styles.content} >
-                <div className={styles.image} >
-                    <img alt={picture.alt} src={getImagePath(picture.path)} />
-                </div >
-                <div className={styles.info} >
-                    <div className={styles.text} >
-                        <h2 >{name}</h2 >
-                        <p >{description}. {info}</p >
-                    </div >
-                    <div className={styles.text} >
-                        <h3 >Детали</h3 >
-                        <p >{details}</p >
-                    </div >
-                    <div className={styles.buttons} >
-                        <h1 >{priceWithSign}</h1 >
-                        <form className={styles.productCountForm} onSubmit={e => e.preventDefault()} >
-                            <input type="button" value="—" onClick={onDecrementProductCountClick} />
-                            <input type="number" value={productCount} onChange={onCounterChange} />
-                            <input type="button" value="+" onClick={onIncrementProductCountClick} />
-                        </form >
-                        <button className={styles.cartButton} >Add to cart</button >
-                        <label className={styles.favorite} >
+        <main className={styles.wrapper}>
+            <section className={styles.content}>
+                <div className={styles.image}>
+                    <img alt={picture.alt} src={getImagePath(picture.path)}/>
+                </div>
+                <div className={styles.info}>
+                    <div className={styles.text}>
+                        <h2>{name}</h2>
+                        <p>{description}. {info}</p>
+                    </div>
+                    <div className={styles.text}>
+                        <h3>Детали</h3>
+                        <p>{details}</p>
+                    </div>
+                    <div className={styles.buttons}>
+                        <h1>{priceWithSign}</h1>
+                        <form className={styles.productCountForm} onSubmit={e => e.preventDefault()}>
+                            <input type="button" value="—" onClick={onDecrementProductCountClick}/>
+                            <input type="number" value={productCount} onChange={onCounterChange}/>
+                            <input type="button" value="+" onClick={onIncrementProductCountClick}/>
+                        </form>
+                        <BaseButton text={'Add to cart'} color={Colors.Primary}/>
+                        <label className={styles.favorite}>
                             <input type="checkbox" checked={likeCheck}
-                                   onChange={() => setLikeCheck(prevState => !prevState)} />
-                            <FavoriteIconComponent className={styles.favoriteIcon} />
-                            <FavoriteActiveIconComponent className={styles.favoriteActiveIcon} />
-                        </label >
-                    </div >
-                </div >
-            </section >
-        </main >
+                                   onChange={() => setLikeCheck(prevState => !prevState)}/>
+                            <FavoriteIconComponent className={styles.favoriteIcon}/>
+                            <FavoriteActiveIconComponent className={styles.favoriteActiveIcon}/>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
 };
 

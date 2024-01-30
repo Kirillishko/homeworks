@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-    searchInput: "",
+    searchInput: '',
 };
 
 export const headerSearchInputSlice = createSlice({
-    name: "headerSearchInputSlice",
+    name: 'headerSearchInputSlice',
     initialState,
     reducers: {
         updateValue(state, action: PayloadAction<string>) {
